@@ -6,7 +6,7 @@
 ## How to make it run?
 > if needed, install git ``dnf install git``
 ```bash
-cd <file where u cloned this repo>
+cd <file where u cloned this repo/BPC-SOS>
 sh centOS.sh 
 ```
 > change the ``<text>`` thing btw :-)
