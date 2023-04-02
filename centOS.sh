@@ -11,7 +11,7 @@ printf "${RED}Crytical error, even universe couldnt make this work :(${NC}"
 sleep 2.2; clear
 # this is just me fooling around :)
 
-systemctl disable rsyslog
+systemctl disable rsyslog 
 
 # xorg and .xinitrc setup
 dnf -y install xorg-x11-server-Xorg xinit xterm
@@ -27,10 +27,9 @@ yum -y install palemoon
 dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm
 
 # .bashrc edit
-sed -i '1s/^/pokus pokus pokus\n/' ~/.bashrc
-sed -i '1s/^/pokus dva  pokus dva  pokus dva\n/' ~/.bashrc
-sed -i '2s/^/XTRM=`pgrep xterm`\nif [ -z "$XTRM" ]; then\n	startx\nelse\n	resize -s 55 165\n fi\n/' ~/.bashrc
-
+sed -i '1s/^/# placeholder for rm -rfv hellfest\n/' ~/.bashrc
+sed -i '1s/^/XTRM=`pgrep xterm`\nif [ -z "$XTRM" ]; then\n	startx\nelse\n	resize -s 55 165\n fi\n/' ~/.bashrc
+sed -i '1s/^/# - - R Y U A  U T I S M - - \n/' ~/.bashrc
 
 
 echo "vic v budoucnu"
