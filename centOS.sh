@@ -27,6 +27,10 @@ yum -y install palemoon
 dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm
 
 # .bashrc edit
-sed -i '2s/^/XTRM=`pgrep xterm`\nif [ -z "$XTRM" ]; then\n	startx\nelse\n	resize -s 55 165\n fi /' ~/.bashrc
+sed -i '1s/^/pokus pokus pokus\n/' ~/.bashrc
+sed -i '1s/^/pokus dva  pokus dva  pokus dva\n/' ~/.bashrc
+sed -i '2s/^/XTRM=`pgrep xterm`\nif [ -z "$XTRM" ]; then\n	startx\nelse\n	resize -s 55 165\n fi\n/' ~/.bashrc
+
+
 
 echo "vic v budoucnu"
