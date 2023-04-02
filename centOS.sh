@@ -8,7 +8,7 @@ echo -ne '\n'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 printf "${RED}Crytical error, even universe couldnt make this work :(${NC}"
-sleep 2.2; clear
+sleep 8; clear
 # this is just me fooling around :)
 
 systemctl disable rsyslog 
