@@ -13,7 +13,8 @@ sh centOS.sh
 ## What exactly does this script do?
 > I will write down all things as i manage them to work like i want to :-)
 - [x] Install xorg apps + xterm, make sure xorg works (simple thing, its not bulletproof) and setup .xinitrc(minimal basics).
-- [ ] Install webbrowser and some PDF reader
+- [x] Install webbrowser and some PDF reader
+- [ ] add testing for working webbrowser and pdf reader
 - [ ] Set ut removing .cache and other useless stuff when system boots -> for now in .bashrc (until i find better way)
 - [ ] removing whole bunch of random packages until i dont have anything more to delete :-P
 > and some more stuff
