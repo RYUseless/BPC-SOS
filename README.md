@@ -1,6 +1,6 @@
 # CentOS(8) script
+This repo is a centOS script for BPC-SOS project (make Linux OS as smallest as possible with some sort of GUI, where u can show vut webpage and some pdf).
 > for now, it is at centOS8, it could work on 9 if u find better mirrors for apps, or the old one still works... <br>
-> this file is a centOS script for BPC-SOS project
 + it aims to install xorg, browser, pdf reader and reduce the OS as much as i am capable of.
 + I am kinda expecting, that u have installed minimal centOS (with no gui etc)
 ## How to make it run?
