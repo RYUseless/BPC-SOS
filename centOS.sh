@@ -33,15 +33,16 @@ sed -i '1s/^/# - - E N D  O F   U T I S M - - \n/' ~/.bashrc
 # A L I A S for better life (when showing final result)
 #echo "pro zobrazeni velikosti, napiste 'velikost'" 
 clear
-sed -i '1s/^/rm -rfv ~/.cache/* \n/' ~/.bashrc
-sed -i '1s/^/rm -rfv /var/log/* \n/' ~/.bashrc
-sed -i '1s/^/rm -rfv /var/cache/* \n/' ~/.bashrc
-sed -i '1s/^/rm -rfv /tmp/*\ n/' ~/.bashrc
-sed -i '1s/^/rm -rfv /usr/tmp/* \n/' ~/.bashrc
-sed -i '1s/^/rm -rfv /var/tmp/* \n/' ~/.bashrc
-sed -i '1s/^/rm -rfv /root/cache/* \n/' ~/.bashrc
-sed -i '1s/^/rm  ~/.bash_history/* \n/' ~/.bashrc
-sed -i '1s/^/rm  ~/.thumbnails/* \n/' ~/.bashrc
+sed -i '1rm -rfv ~/.cache/*' ~/.bashrc
+sed -i '1rm -rfv ~/.cache/*' ~/.bashrc
+sed -i '1rm -rfv /var/log/*' ~/.bashrc
+sed -i '1rm -rfv /var/cache/*' ~/.bashrc
+sed -i '1rm -rfv /tmp/*' ~/.bashrc
+sed -i '1rm -rfv /usr/tmp/*' ~/.bashrc
+sed -i '1rm -rfv /var/tmp/*' ~/.bashrc
+sed -i '1rm -rfv /root/cache/*' ~/.bashrc
+sed -i '1rm  ~/.bash_history/*' ~/.bashrc
+sed -i '1rm  ~/.thumbnails/*' ~/.bashrc
 sed -i '1s/^/XTRM=`pgrep xterm`\nif [ -z "$XTRM" ]; then\n	startx\nelse\n	resize -s 55 165\n fi\n/' ~/.bashrc
 sed -i '1s/^/# - - R Y U A  U T I S M - - \n/' ~/.bashrc
 
