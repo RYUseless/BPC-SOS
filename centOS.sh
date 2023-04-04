@@ -28,28 +28,22 @@ yum -y install palemoon
 dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm
 
 ## .BASHRC EDIT
-# for more editing, use: 
-# sed -i '1s/^/<command>/' <file>
-# or
-# sed -i '1i<command>' <file>
-sed -i '1s/^/# - - E N D  O F   U T I S M - - \n/' ~/.bashrc
-alias home='cd ~'
-alias velikost='cd ~ && ./velikost.sh'
-sed -i '1i\n# A L I A S for better life (when showing final result)' ~/.bashrc
-sed -i '1iecho "pro zobrazeni velikosti, napiste <velikost>"' ~/.bashrc
-sed -i '1iclear' ~/.bashrc
-sed -i '1irm -rfv ~/.cache/*' ~/.bashrc
-sed -i '1irm -rfv ~/.cache/*' ~/.bashrc
-sed -i '1irm -rfv /var/log/*' ~/.bashrc
-sed -i '1irm -rfv /var/cache/*' ~/.bashrc
-sed -i '1irm -rfv /tmp/*' ~/.bashrc
-sed -i '1irm -rfv /usr/tmp/*' ~/.bashrc
-sed -i '1irm -rfv /var/tmp/*' ~/.bashrc
-sed -i '1irm -rfv /root/cache/*' ~/.bashrc
-sed -i '1irm  ~/.bash_history/*' ~/.bashrc
-sed -i '1irm  ~/.thumbnails/*' ~/.bashrc
-sed -i '1s/^/XTRM=`pgrep xterm`\nif [ -z "$XTRM" ]; then\n	startx\nelse\n	resize -s 55 165\n fi\n/' ~/.bashrc
-sed -i '1s/^/# - - R Y U A  U T I S M - - \n/' ~/.bashrc
+echo "#\n - - R Y U A  U T I S M - - " >> ~/.bashrc
+echo "XTRM=`pgrep xterm`\nif [ -z "$XTRM" ]; then\n	startx\nelse\n	resize -s 55 165\n fi\n" >> ~/.bashrc
+echo "rm  ~/.thumbnails/*" >> ~/.bashrc
+echo "rm  ~/.bash_history/*" >> ~/.bashrc
+echo "rm -rfv /root/cache/*" >> ~/.bashrc
+echo "rm -rfv /var/tmp/*" >> ~/.bashrc
+echo "rm -rfv /usr/tmp/*" >> ~/.bashrc
+echo "rm -rfv /tmp/*" >> ~/.bashrc
+echo "rm -rfv /var/cache/*" >> ~/.bashrc
+echo "rm -rfv /var/log/*" >> ~/.bashrc
+echo "rm -rfv ~/.cache/*" >> ~/.bashrc
+echo "clear" >> ~/.bashrc
+echo "\n # A L I A S  F O R  S O S thing" >> ~/.bashrc
+echo "alias home = 'cd ~'" >> ~/.bashrc
+echo "alias velikost = 'cd ~ && ./velikost.sh'" >> ~/.bashrc
+echo "# E N D  O F  R Y U  A U T I S M" >> ~/.bashrc
 
 touch ~/velikost.sh
 chmod +x ~/velikost.sh
