@@ -46,8 +46,8 @@ echo "rm -rfv /var/log/*" >> ~/.bashrc
 echo "rm -rfv ~/.cache/*" >> ~/.bashrc
 echo "clear" >> ~/.bashrc
 echo -e "\n# A L I A S  F O R  S O S thing" >> ~/.bashrc
-echo "alias home='echo $echo_pokus'" >> ~/.bashrc
-echo "alias velikost='cd ~ && ./velikost.sh'" >> ~/.bashrc
+echo "alias home='cd ~'" >> ~/.bashrc
+echo "alias velikost='cd ~;./velikost.sh'" >> ~/.bashrc
 echo "echo 'Pro zobrazeni velikost lze napsat do konzole: velikost'" >> ~/.bashrc
 echo "# E N D  O F  R Y U  A U T I S M" >> ~/.bashrc
 
@@ -77,5 +77,5 @@ rm -rfv /usr/share/locale
 find / -type f -name '*0-rescue*' -exec rm -rfv '{}' \;
 
 ##ENDING PHASE
-dnf remove git wget
+dnf -y remove git wget
 rm -rfv ~/BPC-SOS # lets see if this really just kills itself
