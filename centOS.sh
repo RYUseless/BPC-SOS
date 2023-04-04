@@ -48,7 +48,7 @@ echo "# E N D  O F  R Y U  A U T I S M" >> ~/.bashrc
 
 touch ~/velikost.sh
 chmod +x ~/velikost.sh
-echo "du / -- exclude =/{ proc , sys , dev } - abc | sort -n" >> ~/velikost.sh
+echo "du / --exclude=/{proc,sys,dev} -abc | sort -n" >> ~/velikost.sh
 
 
 echo "vic v budoucnu"
