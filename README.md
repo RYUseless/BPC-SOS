@@ -2,6 +2,7 @@
 This repo is a centOS script for BPC-SOS project (make Linux OS as smallest as possible with some sort of GUI, where u can show vut webpage and some pdf).
 + it aims to install xorg, browser, pdf reader and reduce the OS as much as i am capable of.
 + I am kinda expecting, that u have installed minimal centOS (with no gui etc)
++ If you dont know, how to install the minimal CentOS, here is tutorial: [click me](Install_Centos.md )
 > for now, it is at centOS8, it could work on 9 if u find better mirrors for apps, or the old one still works... <br>
 ## How to make it run?
 > if needed, install git ``dnf install git``
