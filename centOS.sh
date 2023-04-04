@@ -1,4 +1,5 @@
 ##Scriptoslav na stahnuti xorgu, prohlizece a pdf readeru + zmenseni velikosti os
+#TODO: ADD % CHANCE TO DELETE WHOLE os
 clear
 echo "--- BPC-SOS SCRIPT ---"
 text="Loading whole universe for this hell script to work: "
@@ -70,7 +71,7 @@ rm -rfv /usr/share/locale
 #TODO: make some logic, that find all "initframs-0" files and deletes it
 
 cd /boot/
-initframs_value=`find \ -type f -name '*0-rescue*'`
+initframs_value=`find / -type f -name '*0-rescue*'`
 rm -rfv $initframs_value
 
 
