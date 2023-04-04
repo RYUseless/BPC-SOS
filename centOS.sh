@@ -13,7 +13,10 @@ printf "${RED}Crytical error, even universe couldnt make this work :(${NC}"
 sleep 5; clear
 # this is just me fooling around :)
 
-systemctl disable rsyslog 
+systemctl disable --now rsyslog 
+systemctl mask rsyslog
+systemctl disable --now systemd-journald
+systemctl mask systemd-journald
 
 ## XORG, XTERM, .XINITRC SETUP + SMALL TEST
 dnf -y install xorg-x11-server-Xorg xinit xterm
@@ -23,6 +26,7 @@ startx || exit 1
 sed -i '3s/.*/xterm/' ~/.xinitrc
 
 ## BROWSER + PDF VIEWER
+##TODO: find better way than this hell on earth piece of code
 dnf -y install wget
 wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
 yum -y install palemoon
@@ -71,11 +75,6 @@ rm -rfv /usr/share/mime/audio/*
 rm -rfv /usr/share/locale 
 # removing rescue initframs
 find / -type f -name '*0-rescue*' -exec rm -rfv '{}' \;
-
-
-
-##
-echo "vic v budoucnu"; startx
 
 ##ENDING PHASE
 dnf remove git wget
