@@ -28,7 +28,7 @@ yum -y install palemoon
 dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm
 
 ## .BASHRC EDIT
-echo "#\n - - R Y U A  U T I S M - - " >> ~/.bashrc
+echo -e "\n# - - R Y U A  U T I S M - - " >> ~/.bashrc
 echo -e "XTRM=`pgrep xterm`\n if [ -z "$XTRM" ]; then\n	startx\n else\n	resize -s 55 165 \n fi\n" >> ~/.bashrc
 echo "rm  ~/.thumbnails/*" >> ~/.bashrc
 echo "rm  ~/.bash_history/*" >> ~/.bashrc
@@ -40,10 +40,10 @@ echo "rm -rfv /var/cache/*" >> ~/.bashrc
 echo "rm -rfv /var/log/*" >> ~/.bashrc
 echo "rm -rfv ~/.cache/*" >> ~/.bashrc
 echo "clear" >> ~/.bashrc
-echo "\n # A L I A S  F O R  S O S thing" >> ~/.bashrc
+echo -e "\n# A L I A S  F O R  S O S thing" >> ~/.bashrc
 echo_pokus="hello"
 echo "alias home='echo $echo_pokus'" >> ~/.bashrc
-#echo "alias velikost='cd ~ && ./velikost.sh'" >> ~/.bashrc
+echo "alias velikost='cd ~ && ./velikost.sh'" >> ~/.bashrc
 echo "# E N D  O F  R Y U  A U T I S M" >> ~/.bashrc
 
 touch ~/velikost.sh
