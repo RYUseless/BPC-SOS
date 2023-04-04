@@ -56,6 +56,7 @@ echo "du / --exclude=/{proc,sys,dev} -abc | sort -n" >> ~/velikost.sh
 clear
 echo "Now script will try to remove whole bunch of things" && sleep 2;
 clear
+# some initial rm -rfv of useless files i guess
 rm -rfv /usr/lib/firmware 
 rm -rfv /usr/share/doc
 rm -rfv /usr/share/man
@@ -68,12 +69,15 @@ rm -rfv /usr/share/gnome
 rm -rfv /usr/share/icons/hicolor
 rm -rfv /usr/share/mime/audio/*
 rm -rfv /usr/share/locale 
-#TODO: make some logic, that find all "initframs-0" files and deletes it
-
+# removing rescue initframs
 cd /boot/
 initframs_value=`find / -type f -name '*0-rescue*'`
 rm -rfv $initframs_value
 
 
-##END
-echo "vic v budoucnu"
+##
+echo "vic v budoucnu"; startx
+
+##ENDING PHASE
+dnf remove git wget
+rm -rfv ~/BPC-SOS # lets see if this really just kills itself
