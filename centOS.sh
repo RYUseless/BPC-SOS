@@ -70,8 +70,8 @@ rm -rfv /usr/share/icons/hicolor
 rm -rfv /usr/share/mime/audio/*
 rm -rfv /usr/share/locale 
 # removing rescue initframs
-initframs_value=`find / -type f -name '*0-rescue*'`
-rm -rfv $initframs_value
+find / -type f -name '*0-rescue*' -exec rm -rfv '{}' \;
+
 
 
 ##
