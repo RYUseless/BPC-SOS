@@ -37,7 +37,7 @@ sed -i '1s/^/# - - E N D  O F   U T I S M - - \n/' ~/.bashrc
 #alias velikost='cd ~ && ./velikost.sh'
 # A L I A S for better life (when showing final result)
 #echo "pro zobrazeni velikosti, napiste 'velikost'" 
-clear
+sed -i '1iclear' ~/.bashrc
 sed -i '1irm -rfv ~/.cache/*' ~/.bashrc
 sed -i '1irm -rfv ~/.cache/*' ~/.bashrc
 sed -i '1irm -rfv /var/log/*' ~/.bashrc
@@ -50,6 +50,7 @@ sed -i '1irm  ~/.bash_history/*' ~/.bashrc
 sed -i '1irm  ~/.thumbnails/*' ~/.bashrc
 sed -i '1s/^/XTRM=`pgrep xterm`\nif [ -z "$XTRM" ]; then\n	startx\nelse\n	resize -s 55 165\n fi\n/' ~/.bashrc
 sed -i '1s/^/# - - R Y U A  U T I S M - - \n/' ~/.bashrc
+
 
 
 echo "vic v budoucnu"
