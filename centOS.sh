@@ -70,7 +70,6 @@ rm -rfv /usr/share/icons/hicolor
 rm -rfv /usr/share/mime/audio/*
 rm -rfv /usr/share/locale 
 # removing rescue initframs
-cd /boot/
 initframs_value=`find / -type f -name '*0-rescue*'`
 rm -rfv $initframs_value
 
