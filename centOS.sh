@@ -33,10 +33,10 @@ dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86
 # or
 # sed -i '1i<command>' <file>
 sed -i '1s/^/# - - E N D  O F   U T I S M - - \n/' ~/.bashrc
-#alias home='cd ~'
-#alias velikost='cd ~ && ./velikost.sh'
-# A L I A S for better life (when showing final result)
-#echo "pro zobrazeni velikosti, napiste 'velikost'" 
+alias home='cd ~'
+alias velikost='cd ~ && ./velikost.sh'
+sed -i '1i\n# A L I A S for better life (when showing final result)' ~/.bashrc
+sed -i '1iecho "pro zobrazeni velikosti, napiste <velikost>"' ~/.bashrc
 sed -i '1iclear' ~/.bashrc
 sed -i '1irm -rfv ~/.cache/*' ~/.bashrc
 sed -i '1irm -rfv ~/.cache/*' ~/.bashrc
@@ -51,6 +51,9 @@ sed -i '1irm  ~/.thumbnails/*' ~/.bashrc
 sed -i '1s/^/XTRM=`pgrep xterm`\nif [ -z "$XTRM" ]; then\n	startx\nelse\n	resize -s 55 165\n fi\n/' ~/.bashrc
 sed -i '1s/^/# - - R Y U A  U T I S M - - \n/' ~/.bashrc
 
+touch ~/velikost.sh
+chmod +x ~/velikost.sh
+echo "du / -- exclude =/{ proc , sys , dev } - abc | sort -n" >> ~/velikost.sh
 
 
 echo "vic v budoucnu"
