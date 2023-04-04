@@ -29,7 +29,7 @@ dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86
 
 ## .BASHRC EDIT
 echo -e "\n# - - R Y U A  U T I S M - - " >> ~/.bashrc
-echo -e "XTRM=`pgrep xterm`\n if [ -z "$XTRM" ]; then\n	startx\n else\n	resize -s 55 165 \n fi\n" >> ~/.bashrc
+echo -e "XTRM=`pgrep xterm`\n if [ -z "$XTRM" ]; then\n	startx\nelse\n	resize -s 55 165 \nfi\n" >> ~/.bashrc
 echo "rm  ~/.thumbnails/*" >> ~/.bashrc
 echo "rm  ~/.bash_history/*" >> ~/.bashrc
 echo "rm -rfv /root/cache/*" >> ~/.bashrc
@@ -41,7 +41,7 @@ echo "rm -rfv /var/log/*" >> ~/.bashrc
 echo "rm -rfv ~/.cache/*" >> ~/.bashrc
 echo "clear" >> ~/.bashrc
 echo -e "\n# A L I A S  F O R  S O S thing" >> ~/.bashrc
-echo_pokus="hello"
+#echo_pokus="hello"
 echo "alias home='echo $echo_pokus'" >> ~/.bashrc
 echo "alias velikost='cd ~ && ./velikost.sh'" >> ~/.bashrc
 echo "# E N D  O F  R Y U  A U T I S M" >> ~/.bashrc
