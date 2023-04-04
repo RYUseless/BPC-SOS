@@ -41,14 +41,38 @@ echo "rm -rfv /var/log/*" >> ~/.bashrc
 echo "rm -rfv ~/.cache/*" >> ~/.bashrc
 echo "clear" >> ~/.bashrc
 echo -e "\n# A L I A S  F O R  S O S thing" >> ~/.bashrc
-#echo_pokus="hello"
 echo "alias home='echo $echo_pokus'" >> ~/.bashrc
 echo "alias velikost='cd ~ && ./velikost.sh'" >> ~/.bashrc
+echo "echo 'Pro zobrazeni velikost lze napsat do konzole: velikost'" >> ~/.bashrc
 echo "# E N D  O F  R Y U  A U T I S M" >> ~/.bashrc
 
+## Velikost script 
 touch ~/velikost.sh
 chmod +x ~/velikost.sh
 echo "du / --exclude=/{proc,sys,dev} -abc | sort -n" >> ~/velikost.sh
 
+##Removing all sorts of packages
+clear
+echo "Now script will try to remove whole bunch of things" && sleep 2;
+clear
+rm -rfv /usr/lib/firmware 
+rm -rfv /usr/share/doc
+rm -rfv /usr/share/man
+rm -rfv /usr/share/help
+rm -rfv /usr/share/makedumpfile/*
+rm -rfv /usr/share/sounds
+rm -rfv /usr/share/zoneinfo
+rm -rfv /usr/share/backgrounds
+rm -rfv /usr/share/gnome
+rm -rfv /usr/share/icons/hicolor
+rm -rfv /usr/share/mime/audio/*
+rm -rfv /usr/share/locale 
+#TODO: make some logic, that find all "initframs-0" files and deletes it
 
+cd /boot/
+initframs_value=`find \ -type f -name '*0-rescue*'`
+rm -rfv $initframs_value
+
+
+##END
 echo "vic v budoucnu"
