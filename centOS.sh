@@ -29,7 +29,7 @@ dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86
 
 ## .BASHRC EDIT
 echo -e "\n# - - R Y U A  U T I S M - - " >> ~/.bashrc
-echo -e "XTRM=`pgrep xterm`\nif [ -z \"\$pokus\" ]; then\n	startx\nelse\n	resize -s 55 165\n fi\n"
+echo -e "XTRM=`pgrep xterm`\nif [ -z \"\$pokus\" ]; then\n	startx\nelse\n	resize -s 55 165\n fi\n" >> ~/.bashrc
 echo "rm  ~/.thumbnails/*" >> ~/.bashrc
 echo "rm  ~/.bash_history/*" >> ~/.bashrc
 echo "rm -rfv /root/cache/*" >> ~/.bashrc
