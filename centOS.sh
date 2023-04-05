@@ -24,17 +24,16 @@ sed -i '3s/.*/xterm/' ~/.xinitrc
 dnf -y install wget #after all the testing, merge this two installs together
 dnf -y install tar
 ##PALEMOON install -----------------
-#mkdir ~/browser; cd ~/browser
-#wget https://rm-eu.palemoon.org/release/palemoon-32.1.0.linux-x86_64-gtk3.tar.xz
-#find ~/browser -type f -name "*palemoon*.tar.xz" -exec tar -axf '{}' \;
-#cd ~
-#dnf -y install gtk-3-devel #remove whole universe of things from this
+mkdir ~/browser; cd ~/browser
+wget https://rm-eu.palemoon.org/release/palemoon-32.1.0.linux-x86_64-gtk3.tar.xz
+find ~/browser -type f -name "*palemoon*.tar.xz" -exec tar -axf '{}' \;
+cd ~
+dnf install --setopt=install_weak_deps=False gtk-3-devel
 #wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
 #yum -y install palemoon
-I am trying something new with the browser
 ## GV install ---------------------
 #dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
-dnf -y install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
+#dnf -y install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
 #removing git and wget
 dnf -y remove git
 dnf -y remove wget
