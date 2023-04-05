@@ -5,12 +5,10 @@ This repo is a centOS script for BPC-SOS project (make Linux OS as smallest as p
 + If you dont know, how to install the minimal CentOS, here is tutorial: [click me](Install_Centos.md )
 > for now, it is at centOS8, it could work on 9 if u find better mirrors for apps, or the old one still works... <br>
 ## How to make it run?
-> if needed, install git ``dnf install git``
++ If needed, install git: ``dnf install git``
 ```bash
-cd <file where u cloned this repo/BPC-SOS>
-sh centOS.sh 
+sh ~/BPC-SOS/centOS.sh 
 ```
-> change the ``<text>`` thing btw :-)
 ## What exactly does this script do?
 > I will write down all things as i manage them to work like i want to :-)
 - [x] Install xorg apps + xterm, make sure xorg works (simple thing, its not bulletproof) and setup .xinitrc(minimal basics).

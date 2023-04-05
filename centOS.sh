@@ -23,16 +23,17 @@ sed -i '3s/.*/xterm/' ~/.xinitrc
 ## BROWSER + PDF VIEWER
 dnf -y install wget #after all the testing, merge this two installs together
 dnf -y install tar
-mkdir ~/browser; cd ~/browser
-wget https://rm-eu.palemoon.org/release/palemoon-32.1.0.linux-x86_64-gtk3.tar.xz
-find ~/browser -type f -name "*palemoon*.tar.xz" -exec tar -axf '{}' \;
-cd ~
-# missing dependencies for gtk3 :)
-dnf -y install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm
-# for centos8
-# wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
-#yum -y install palemoon
-#dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm
+##PALEMOON install -----------------
+#mkdir ~/browser; cd ~/browser
+#wget https://rm-eu.palemoon.org/release/palemoon-32.1.0.linux-x86_64-gtk3.tar.xz
+#find ~/browser -type f -name "*palemoon*.tar.xz" -exec tar -axf '{}' \;
+#cd ~
+# missing dependencies for gtk3 :), until i figure out all dependencies, this hell of a thing stays
+wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
+yum -y install palemoon
+## GV install ---------------------
+#dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
+dnf -y install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
 
 
 ## .BASHRC EDIT
@@ -68,19 +69,19 @@ clear
 find / -type f -name '*0-rescue*' -exec rm -rfv '{}' \;
 #removing fimware from lib
 rm -rfv /usr/lib/firmware 
-#usr share remove
-#rm -rfv /usr/share/doc
-#rm -rfv /usr/share/man
-#rm -rfv /usr/share/help
-#rm -rfv /usr/share/makedumpfile/*
-#rm -rfv /usr/share/sounds
-#rm -rfv /usr/share/zoneinfo
-#rm -rfv /usr/share/backgrounds
-#rm -rfv /usr/share/gnome
-#rm -rfv /usr/share/icons/hicolor
-#rm -rfv /usr/share/mime/audio/*
-#rm -rfv /usr/share/locale 
-#rm -rfv /usr/share/centos-release
+usr share remove
+rm -rfv /usr/share/doc
+rm -rfv /usr/share/man
+rm -rfv /usr/share/help
+rm -rfv /usr/share/makedumpfile/*
+rm -rfv /usr/share/sounds
+rm -rfv /usr/share/zoneinfo
+rm -rfv /usr/share/backgrounds
+rm -rfv /usr/share/gnome
+rm -rfv /usr/share/icons/hicolor
+rm -rfv /usr/share/mime/audio/*
+rm -rfv /usr/share/locale 
+rm -rfv /usr/share/centos-release
 #rm -rfv /usr/share/dict
 #rm -rfv /usr/share/egl
 #rm -rfv /usr/share/emacs
@@ -111,8 +112,8 @@ rm -rfv ~/BPC-SOS
 cd ~
 
 #uncomment later
-#systemctl disable --now rsyslog
+systemctl disable --now rsyslog
 #systemctl mask rsyslog
-#systemctl disable --now systemd-journald
+systemctl disable --now systemd-journald
 #systemctl mask systemd-journald
 exit 0 #end
