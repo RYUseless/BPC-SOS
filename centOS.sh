@@ -14,23 +14,23 @@ sleep 5; clear
 # this is just me fooling around :)
 
 ## XORG, XTERM, .XINITRC SETUP + SMALL TEST
-dnf -y install xorg-x11-server-Xorg xinit xterm
+dnf -y --setopt=install_weak_deps=False install xorg-x11-server-Xorg xinit xterm
 touch ~/.xinitrc
 echo -e "#xinit scriptik\nxrandr -s 1024x768_60.00 &\n xterm -e \" echo 'xterm works'; sleep 5; exit \" " >> ~/.xinitrc
 startx || exit 1
 sed -i '3s/.*/xterm/' ~/.xinitrc
 
 ## BROWSER + PDF VIEWER
-dnf -y install wget #after all the testing, merge this two installs together
-dnf -y install tar
+dnf -y --setopt=install_weak_deps=False install wget #after all the testing, merge this two installs together
+dnf -y --setopt=install_weak_deps=False install tar
 ##PALEMOON install -----------------
-mkdir ~/browser; cd ~/browser
-wget https://rm-eu.palemoon.org/release/palemoon-32.1.0.linux-x86_64-gtk3.tar.xz
-find ~/browser -type f -name "*palemoon*.tar.xz" -exec tar -axf '{}' \;
-cd ~
-dnf install --setopt=install_weak_deps=False gtk-3-devel
-#wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
-#yum -y install palemoon
+#mkdir ~/browser; cd ~/browser
+#wget https://rm-eu.palemoon.org/release/palemoon-32.1.0.linux-x86_64-gtk3.tar.xz
+#find ~/browser -type f -name "*palemoon*.tar.xz" -exec tar -axf '{}' \;
+#cd ~
+#dnf install --setopt=install_weak_deps=False gtk-3-devel
+wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
+yum --setopt=install_weak_deps=False install palemoon
 ## GV install ---------------------
 #dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
 #dnf -y install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
