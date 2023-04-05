@@ -15,6 +15,7 @@ sleep 5; clear
 
 ## XORG, XTERM, .XINITRC SETUP + SMALL TEST + wget
 dnf -y --setopt=install_weak_deps=False install xorg-x11-server-Xorg xinit xterm wget
+dnf -y --setopt=install_weak_deps=False  http://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/HdrHistogram_c-0.11.0-6.el9.i686.rpm #testing
 touch ~/.xinitrc
 echo -e "#xinit scriptik\nxrandr -s 1024x768_60.00 &\n xterm -e \" echo 'xterm works'; sleep 5; exit \" " >> ~/.xinitrc
 startx || exit 1
