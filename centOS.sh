@@ -28,12 +28,15 @@ dnf -y install tar
 #wget https://rm-eu.palemoon.org/release/palemoon-32.1.0.linux-x86_64-gtk3.tar.xz
 #find ~/browser -type f -name "*palemoon*.tar.xz" -exec tar -axf '{}' \;
 #cd ~
-# missing dependencies for gtk3 :), until i figure out all dependencies, this hell of a thing stays
+#dnf -y install gtk-3-devel #remove whole universe of things from this
 wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
 yum -y install palemoon
 ## GV install ---------------------
 #dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
 dnf -y install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
+#removing git and wget
+dnf -y remove git
+dnf -y remove wget
 
 
 ## .BASHRC EDIT
@@ -82,38 +85,36 @@ rm -rfv /usr/share/icons/hicolor
 rm -rfv /usr/share/mime/audio/*
 rm -rfv /usr/share/locale 
 rm -rfv /usr/share/centos-release
-#rm -rfv /usr/share/dict
-#rm -rfv /usr/share/egl
-#rm -rfv /usr/share/emacs
-#rm -rfv /usr/share/empty
-#rm -rfv /usr/share/file
-#rm -rfv /usr/share/gettext-* #pokus
-#rm -rfv /usr/share/gettext
-#rm -rfv /usr/share/gawk
-#rm -rfv /usr/share/groff
-#rm -rfv /usr/share/glvnd
-#rm -rfv /usr/share/fonts/urw-base35
-#rm -rfv /usr/share/redhat-release
-#rm -rfv /usr/share/mime-info
-#rm -rfv /usr/share/microcode-ctl
-#rm -rfv /usr/share/metainfo
-#rm -rfv /usr/share/makedumpfile
-#rm -rfv /usr/share/sssd
-#rm -rfv /usr/share/sssd-kcm
+rm -rfv /usr/share/dict
+rm -rfv /usr/share/egl
+rm -rfv /usr/share/emacs
+rm -rfv /usr/share/empty
+rm -rfv /usr/share/file
+rm -rfv /usr/share/gettext-* #pokus
+rm -rfv /usr/share/gettext
+rm -rfv /usr/share/gawk
+rm -rfv /usr/share/groff
+rm -rfv /usr/share/glvnd
+rm -rfv /usr/share/fonts/urw-base35
+rm -rfv /usr/share/redhat-release
+rm -rfv /usr/share/mime-info
+rm -rfv /usr/share/microcode-ctl
+rm -rfv /usr/share/metainfo
+rm -rfv /usr/share/makedumpfile
+rm -rfv /usr/share/sssd
+rm -rfv /usr/share/sssd-kcm
 
 
 
 ##ENDING PHASE
 clear
 echo "Ending phase"; sleep 2;
-dnf -y remove git
-dnf -y remove wget
 rm -rfv ~/BPC-SOS
 cd ~
 
 #uncomment later
 systemctl disable --now rsyslog
-#systemctl mask rsyslog
+systemctl mask rsyslog
 systemctl disable --now systemd-journald
-#systemctl mask systemd-journald
+systemctl mask systemd-journald
 exit 0 #end
