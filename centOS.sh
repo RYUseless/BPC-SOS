@@ -23,14 +23,11 @@ sed -i '3s/.*/xterm/' ~/.xinitrc
 ## BROWSER + PDF VIEWER
 wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
 yum -y --setopt=install_weak_deps=False install palemoon
-echo "palemoon" > /etc/dnf/protected.d/palemoon.conf
+echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
 # G V INSTALL
 #dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
 dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
-# removing git and wget
-dnf -y remove git
-dnf -y remove wget
-
+dnf -y remove git wget
 
 ## .BASHRC EDIT
 echo -e "\n# - - R Y U A  U T I S M - - " >> ~/.bashrc
@@ -58,45 +55,11 @@ chmod +x ~/velikost.sh
 echo "du / --exclude=/{proc,sys,dev} -abc | sort -n" >> ~/velikost.sh
 
 ##Removing all sorts of packages
+clear; echo "Now script will try to remove whole bunch of things" && sleep 2;
 clear
-
-echo "Now script will try to remove whole bunch of things" && sleep 2;
-clear
-# removing rescue initframs
-find / -type f -name '*0-rescue*' -exec rm -rfv '{}' \;
-#removing fimware from lib
-rm -rfv /usr/lib/firmware 
-usr share remove
-rm -rfv /usr/share/doc
-rm -rfv /usr/share/man
-rm -rfv /usr/share/help
-rm -rfv /usr/share/makedumpfile/*
-rm -rfv /usr/share/sounds
-rm -rfv /usr/share/zoneinfo
-rm -rfv /usr/share/backgrounds
-rm -rfv /usr/share/gnome
-rm -rfv /usr/share/icons/hicolor
-rm -rfv /usr/share/mime/audio/*
-rm -rfv /usr/share/locale 
-rm -rfv /usr/share/centos-release
-rm -rfv /usr/share/dict
-rm -rfv /usr/share/egl
-rm -rfv /usr/share/emacs
-rm -rfv /usr/share/empty
-rm -rfv /usr/share/file
-rm -rfv /usr/share/gettext-* #pokus
-rm -rfv /usr/share/gettext
-rm -rfv /usr/share/gawk
-rm -rfv /usr/share/groff
-rm -rfv /usr/share/glvnd
-rm -rfv /usr/share/fonts/urw-base35
-rm -rfv /usr/share/redhat-release
-rm -rfv /usr/share/mime-info
-rm -rfv /usr/share/microcode-ctl
-rm -rfv /usr/share/metainfo
-rm -rfv /usr/share/makedumpfile
-rm -rfv /usr/share/sssd
-rm -rfv /usr/share/sssd-kcm
+find / -type f -name '*0-rescue*' -exec rm -rfv '{}' \; #finding and removing initframs rescue
+rm -rfv /usr/lib/firmware #removing firmware
+ 	
 ## testing something new, so i dont need to rm everything for now :)
 
 
@@ -105,9 +68,8 @@ clear
 echo "Ending phase"; sleep 2;
 rm -rfv ~/BPC-SOS
 cd ~
-#uncomment later
 systemctl disable --now rsyslog
 systemctl mask rsyslog
 systemctl disable --now systemd-journald
 systemctl mask systemd-journald
-exit 0 #end
+# i will add exit later, now i dont like it
