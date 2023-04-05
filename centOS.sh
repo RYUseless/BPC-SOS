@@ -23,9 +23,10 @@ sed -i '3s/.*/xterm/' ~/.xinitrc
 ## BROWSER + PDF VIEWER
 dnf -y install wget #after all the testing, merge this two installs together
 dnf -y install tar
-touch ~/browser; cd ~/browser
+mkdir ~/browser; cd ~/browser
 wget https://rm-eu.palemoon.org/release/palemoon-32.1.0.linux-x86_64-gtk3.tar.xz
 find / -type f -name "*.tar.xz" -exec tar -axf '{}' \;
+cd ~
 dnf -y install 	http://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/gvfs-1.48.1-4.el9.x86_64.rpm
 # for centos8
 # wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
@@ -104,6 +105,7 @@ clear
 echo "Ending phase"; sleep 2;
 dnf -y remove git wget
 rm -rfv ~/BPC-SOS
+cd ~
 
 #uncomment later
 #systemctl disable --now rsyslog
