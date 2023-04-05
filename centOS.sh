@@ -21,15 +21,9 @@ startx || exit 1
 sed -i '3s/.*/xterm/' ~/.xinitrc
 
 ## BROWSER + PDF VIEWER
-#wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
-#yum -y --setopt=install_weak_deps=False install palemoon
-#echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
-
-mkdir browser; cd browser/
-wget https://rm-eu.palemoon.org/release/palemoon-32.1.0.linux-x86_64-gtk2.tar.xz
-find / -type f -name '*palemoon*.tar.xz' -exec tar -axf '{}' \; #not sure if this is great idea
-dnf -y --setopt=install_weak_deps=False install alsa-lib atk avahi-libs cairo cups-libs dbus-glib fribidi gdk-pixbuf2 gdk-pixbuf2-modules gtk-update-icon-cache gtk2 hicolor-icon-theme jbigkit-libs libXcomposite libXdamage libdatrie libjpeg-turbo libthai libtiff libwebp pango shared-mime-info
-cd ~
+wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bgstack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
+yum -y --setopt=install_weak_deps=False install palemoon
+echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
 
 # G V INSTALL
 #dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
@@ -66,6 +60,21 @@ clear; echo "Now script will try to remove whole bunch of things" && sleep 2;
 clear
 find / -type f -name '*0-rescue*' -exec rm -rfv '{}' \; #finding and removing initframs rescue
 rm -rfv /usr/lib/firmware #removing firmware
+find / -name "*games*" -exec rm -rfv '{}' \;
+find / -name "*mail*" -exec rm -rfv '{}' \;
+find / -name  "opt" -exec rm -rfv '{}' \;
+find / -type f -name "locale" -exec rm -rfv '{}' \; 
+# /usr/share
+rm -rfv /usr/share/doc #removing documentation
+rm -rfv /usr/share/man #removing manuals
+rm -rfv /usr/share/help #removing help :(
+#rm -rfv /usr/share/makedumpfile/*
+rm -rfv /usr/share/sounds #removing sounds 
+rm -rfv /usr/share/zoneinfo #removing zone specification
+rm -rfv /usr/share/backgrounds #removing backgrounds file
+rm -rfv /usr/share/gnome
+rm -rfv /usr/share/icons/hicolor
+#rm -rfv /usr/share/mime/audio/*
  	
 ## testing something new, so i dont need to rm everything for now :)
 
