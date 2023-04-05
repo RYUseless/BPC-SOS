@@ -13,11 +13,6 @@ printf "${RED}Crytical error, even universe couldnt make this work :(${NC}"
 sleep 5; clear
 # this is just me fooling around :)
 
-systemctl disable --now rsyslog 
-systemctl mask rsyslog
-systemctl disable --now systemd-journald
-systemctl mask systemd-journald
-
 ## XORG, XTERM, .XINITRC SETUP + SMALL TEST
 dnf -y install xorg-x11-server-Xorg xinit xterm
 touch ~/.xinitrc
@@ -26,14 +21,16 @@ startx || exit 1
 sed -i '3s/.*/xterm/' ~/.xinitrc
 
 ## BROWSER + PDF VIEWER
-#TODO: find better way than this hell on earth piece of code
-dnf -y install wget
-#wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
+dnf -y install wget #after all the testing, merge this two installs together
+dnf -y install tar
 wget https://rm-eu.palemoon.org/release/palemoon-32.1.0.linux-x86_64-gtk3.tar.xz
-tar -axf palemoon-32.1.0.linux-x86_64-gtk3.tar.xz 
+find / -type f -name "*.tar.xz" -exec tar -axf '{}' \;
+dnf -y install 	http://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/gvfs-1.48.1-4.el9.x86_64.rpm
+# for centos8
+# wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
 #yum -y install palemoon
 #dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm
-dnf -y install 	http://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/gvfs-1.48.1-4.el9.x86_64.rpm
+
 
 ## .BASHRC EDIT
 echo -e "\n# - - R Y U A  U T I S M - - " >> ~/.bashrc
@@ -102,6 +99,14 @@ rm -rfv /usr/share/sssd-kcm
 
 
 ##ENDING PHASE
+clear
+echo "Ending phase"; sleep 2;
 dnf -y remove git wget
-rm -rfv ~/BPC-SOS # lets see if this really just kills itself
-exit 1 #end
+rm -rfv ~/BPC-SOS 
+
+#uncomment later
+#systemctl disable --now rsyslog
+#systemctl mask rsyslog
+#systemctl disable --now systemd-journald
+#systemctl mask systemd-journald
+#exit 0 #end
