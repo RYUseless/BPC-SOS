@@ -7,8 +7,9 @@ This repo is a centOS script for BPC-SOS project (make Linux OS as smallest as p
 ## How to make it run?
 + If needed, install git: ``dnf install git``
 ```bash
-sh ~/BPC-SOS/centOS.sh 
+sh BPC-SOS/centOS.sh 
 ```
+> or you can cd into ``BPC-SOS/`` first.
 ## What exactly does this script do?
 > I will write down all things as i manage them to work like i want to :-)
 - [x] Install xorg apps + xterm, make sure xorg works (simple thing, its not bulletproof) and setup .xinitrc(minimal basics).
