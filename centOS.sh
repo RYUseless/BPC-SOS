@@ -60,8 +60,11 @@ echo "du / --exclude=/{proc,sys,dev} -abc | sort -n" >> ~/velikost.sh
 clear
 echo "Now script will try to remove whole bunch of things" && sleep 2;
 clear
-# some initial rm -rfv of useless files i guess
+# removing rescue initframs
+find / -type f -name '*0-rescue*' -exec rm -rfv '{}' \;
+#removing fimware from lib
 rm -rfv /usr/lib/firmware 
+#usr share remove
 rm -rfv /usr/share/doc
 rm -rfv /usr/share/man
 rm -rfv /usr/share/help
@@ -73,9 +76,29 @@ rm -rfv /usr/share/gnome
 rm -rfv /usr/share/icons/hicolor
 rm -rfv /usr/share/mime/audio/*
 rm -rfv /usr/share/locale 
-# removing rescue initframs
-find / -type f -name '*0-rescue*' -exec rm -rfv '{}' \;
+rm -rfv /usr/share/centos-release
+rm -rfv /usr/share/dict
+rm -rfv /usr/share/egl
+rm -rfv /usr/share/emacs
+rm -rfv /usr/share/empty
+rm -rfv /usr/share/file
+rm -rfv /usr/share/gettext-* #pokus
+rm -rfv /usr/share/gettext
+rm -rfv /usr/share/gawk
+rm -rfv /usr/share/groff
+rm -rfv /usr/share/glvnd
+rm -rfv /usr/share/fonts/urw-base35
+rm -rfv /usr/share/redhat-release
+rm -rfv /usr/share/mime-info
+rm -rfv /usr/share/microcode-ctl
+rm -rfv /usr/share/metainfo
+rm -rfv /usr/share/makedumpfile
+rm -rfv /usr/share/sssd
+rm -rfv /usr/share/sssd-kcm
+
+
 
 ##ENDING PHASE
 dnf -y remove git wget
 rm -rfv ~/BPC-SOS # lets see if this really just kills itself
+exit 1 #end
