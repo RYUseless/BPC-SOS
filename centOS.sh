@@ -27,7 +27,8 @@ mkdir ~/browser; cd ~/browser
 wget https://rm-eu.palemoon.org/release/palemoon-32.1.0.linux-x86_64-gtk3.tar.xz
 find ~/browser -type f -name "*palemoon*.tar.xz" -exec tar -axf '{}' \;
 cd ~
-dnf -y install 	http://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/gvfs-1.48.1-4.el9.x86_64.rpm
+# missing dependencies for gtk3 :)
+dnf -y install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm
 # for centos8
 # wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
 #yum -y install palemoon
@@ -36,6 +37,7 @@ dnf -y install 	http://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Pac
 
 ## .BASHRC EDIT
 echo -e "\n# - - R Y U A  U T I S M - - " >> ~/.bashrc
+echo -e "cd ~" >> ~/.bashrc # for some reason script stays in /BPC-SOS, and i dont know why
 echo -e "XTRM=\`pgrep xterm\`\nif [ -z \"\$XTRM\" ]; then\n	startx\nelse\n	resize -s 55 165\n fi\n" >> ~/.bashrc
 echo "rm  ~/.thumbnails/*" >> ~/.bashrc
 echo "rm  ~/.bash_history/*" >> ~/.bashrc
@@ -103,7 +105,8 @@ rm -rfv /usr/lib/firmware
 ##ENDING PHASE
 clear
 echo "Ending phase"; sleep 2;
-dnf -y remove git wget
+dnf -y remove git
+dnf -y remove wget
 rm -rfv ~/BPC-SOS
 cd ~
 
@@ -112,4 +115,4 @@ cd ~
 #systemctl mask rsyslog
 #systemctl disable --now systemd-journald
 #systemctl mask systemd-journald
-#exit 0 #end
+exit 0 #end
