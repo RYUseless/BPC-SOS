@@ -13,18 +13,18 @@ printf "${RED}Crytical error, even universe couldnt make this work :(${NC}"
 sleep 5; clear
 # this is just me fooling around :)
 
-## XORG, XTERM, .XINITRC SETUP + SMALL TEST + wget
-dnf -y --setopt=install_weak_deps=False install xorg-x11-server-Xorg xinit xterm wget tar
+## XORG, XTERM, .XINITRC SETUP + SMALL TEST 
+dnf -y --setopt=install_weak_deps=False install xorg-x11-server-Xorg xinit xterm
 touch ~/.xinitrc
 echo -e "#xinit scriptik\nxrandr -s 1024x768_60.00 &\n xterm -e \" echo 'xterm works'; sleep 5; exit \" " >> ~/.xinitrc
 startx || exit 1
 sed -i '3s/.*/xterm/' ~/.xinitrc
 
 ## BROWSER + PDF VIEWER
+dnf --setopt=install_weak_deps=False install wget
 wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
-yum -y --setopt=install_weak_deps=False install palemoon
-echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
-
+yum  --setopt=install_weak_deps=False install palemoon
+#echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
 # G V INSTALL
 #dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
 dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
