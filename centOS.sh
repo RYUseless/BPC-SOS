@@ -25,7 +25,7 @@ dnf -y install wget #after all the testing, merge this two installs together
 dnf -y install tar
 mkdir ~/browser; cd ~/browser
 wget https://rm-eu.palemoon.org/release/palemoon-32.1.0.linux-x86_64-gtk3.tar.xz
-find / -type f -name "*.tar.xz" -exec tar -axf '{}' \;
+find ~/browser -type f -name "*palemoon*.tar.xz" -exec tar -axf '{}' \;
 cd ~
 dnf -y install 	http://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/gvfs-1.48.1-4.el9.x86_64.rpm
 # for centos8
