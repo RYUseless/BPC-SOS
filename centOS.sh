@@ -21,7 +21,7 @@ startx || exit 1
 sed -i '3s/.*/xterm/' ~/.xinitrc
 
 ## BROWSER + PDF VIEWER
-wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bgstack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
+wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
 yum -y --setopt=install_weak_deps=False install palemoon
 echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
 
