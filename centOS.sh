@@ -15,7 +15,6 @@ sleep 5; clear
 
 ## XORG, XTERM, .XINITRC SETUP + SMALL TEST + wget
 dnf -y --setopt=install_weak_deps=False install xorg-x11-server-Xorg xinit xterm wget
-dnf -y --setopt=install_weak_deps=False  http://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/HdrHistogram_c-0.11.0-6.el9.i686.rpm #testing
 touch ~/.xinitrc
 echo -e "#xinit scriptik\nxrandr -s 1024x768_60.00 &\n xterm -e \" echo 'xterm works'; sleep 5; exit \" " >> ~/.xinitrc
 startx || exit 1
@@ -66,37 +65,37 @@ find / -type f -name '*0-rescue*' -exec rm -rfv '{}' \;
 #removing fimware from lib
 rm -rfv /usr/lib/firmware 
 usr share remove
-rm -rfv /usr/share/doc
-rm -rfv /usr/share/man
-rm -rfv /usr/share/help
-rm -rfv /usr/share/makedumpfile/*
-rm -rfv /usr/share/sounds
-rm -rfv /usr/share/zoneinfo
-rm -rfv /usr/share/backgrounds
-rm -rfv /usr/share/gnome
-rm -rfv /usr/share/icons/hicolor
-rm -rfv /usr/share/mime/audio/*
-rm -rfv /usr/share/locale 
-rm -rfv /usr/share/centos-release
-rm -rfv /usr/share/dict
-rm -rfv /usr/share/egl
-rm -rfv /usr/share/emacs
-rm -rfv /usr/share/empty
-rm -rfv /usr/share/file
-rm -rfv /usr/share/gettext-* #pokus
-rm -rfv /usr/share/gettext
-rm -rfv /usr/share/gawk
-rm -rfv /usr/share/groff
-rm -rfv /usr/share/glvnd
-rm -rfv /usr/share/fonts/urw-base35
-rm -rfv /usr/share/redhat-release
-rm -rfv /usr/share/mime-info
-rm -rfv /usr/share/microcode-ctl
-rm -rfv /usr/share/metainfo
-rm -rfv /usr/share/makedumpfile
-rm -rfv /usr/share/sssd
-rm -rfv /usr/share/sssd-kcm
-
+#rm -rfv /usr/share/doc
+#rm -rfv /usr/share/man
+#rm -rfv /usr/share/help
+#rm -rfv /usr/share/makedumpfile/*
+#rm -rfv /usr/share/sounds
+#rm -rfv /usr/share/zoneinfo
+#rm -rfv /usr/share/backgrounds
+#rm -rfv /usr/share/gnome
+#rm -rfv /usr/share/icons/hicolor
+#rm -rfv /usr/share/mime/audio/*
+#rm -rfv /usr/share/locale 
+#rm -rfv /usr/share/centos-release
+#rm -rfv /usr/share/dict
+#rm -rfv /usr/share/egl
+#rm -rfv /usr/share/emacs
+#rm -rfv /usr/share/empty
+#rm -rfv /usr/share/file
+#rm -rfv /usr/share/gettext-* #pokus
+#rm -rfv /usr/share/gettext
+#rm -rfv /usr/share/gawk
+#rm -rfv /usr/share/groff
+#rm -rfv /usr/share/glvnd
+#rm -rfv /usr/share/fonts/urw-base35
+#rm -rfv /usr/share/redhat-release
+#rm -rfv /usr/share/mime-info
+#rm -rfv /usr/share/microcode-ctl
+#rm -rfv /usr/share/metainfo
+#rm -rfv /usr/share/makedumpfile
+#rm -rfv /usr/share/sssd
+#rm -rfv /usr/share/sssd-kcm
+## testing something new, so i dont need to rm everything for now :)
 
 
 ##ENDING PHASE
