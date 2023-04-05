@@ -26,11 +26,16 @@ startx || exit 1
 sed -i '3s/.*/xterm/' ~/.xinitrc
 
 ## BROWSER + PDF VIEWER
-##TODO: find better way than this hell on earth piece of code
+#TODO: find better way than this hell on earth piece of code
 dnf -y install wget
-wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
-yum -y install palemoon
-dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm
+#wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
+wget https://rm-eu.palemoon.org/release/palemoon-32.1.0.linux-x86_64-gtk3.tar.xz
+tar -axf palemoon-32.1.0.linux-x86_64-gtk3.tar.xz
+cd palemoon/
+./palemoon 
+#yum -y install palemoon
+#dnf -y install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm
+dnf -y install 	http://mirror.stream.centos.org/9-stream/AppStream/x86_64/os/Packages/gvfs-1.48.1-4.el9.x86_64.rpm
 
 ## .BASHRC EDIT
 echo -e "\n# - - R Y U A  U T I S M - - " >> ~/.bashrc
