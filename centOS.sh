@@ -35,16 +35,13 @@ dnf -y remove git wget
 echo -e "\n# - - R Y U A  U T I S M - - " >> ~/.bashrc
 echo -e "cd ~" >> ~/.bashrc # for some reason script stays in /BPC-SOS, and i dont know why
 echo -e "XTRM=\`pgrep xterm\`\nif [ -z \"\$XTRM\" ]; then\n	startx\nelse\n	resize -s 55 165\n fi\n" >> ~/.bashrc
+echo "find / -name '*.cache' -exec rm -rfv '{}' \;" >> ~/.bashrc
+echo "find / -name '*cache' -exec rm -rfv '{}' \;" >> ~/.bashrc
+echo "find / -type f -name 'log' -exec rm -rfv '{}' \;" >> ~/.bashrc
+echo "find / -type f -name 'tmp' -exec rm -rfv '{}' \;" >> ~/.bashrc
+echo "find / -name 'rsyslog' -exec rm -rfv '{}' \;" >> ~/.bashrc
 echo "rm  ~/.thumbnails/*" >> ~/.bashrc
 echo "rm  ~/.bash_history/*" >> ~/.bashrc
-echo "rm -rfv /root/cache/*" >> ~/.bashrc
-echo "rm -rfv /var/tmp/*" >> ~/.bashrc
-echo "rm -rfv /usr/tmp/*" >> ~/.bashrc
-echo "rm -rfv /tmp/*" >> ~/.bashrc
-echo "rm -rfv /var/cache/*" >> ~/.bashrc
-echo "rm -rfv /var/log/*" >> ~/.bashrc
-echo "rm -rfv /run/log/*" >> ~/.bashrc
-echo "rm -rfv ~/.cache/*" >> ~/.bashrc
 echo "rm -rfv ~/.moonchild\ productions/" >> ~/.bashrc
 echo "clear" >> ~/.bashrc
 echo -e "\n# A L I A S  F O R  S O S thing" >> ~/.bashrc
