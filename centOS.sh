@@ -35,11 +35,11 @@ dnf -y remove git wget
 echo -e "\n# - - R Y U A  U T I S M - - " >> ~/.bashrc
 echo -e "cd ~" >> ~/.bashrc # for some reason script stays in /BPC-SOS, and i dont know why
 echo -e "XTRM=\`pgrep xterm\`\nif [ -z \"\$XTRM\" ]; then\n	startx\nelse\n	resize -s 55 165\n fi\n" >> ~/.bashrc
-echo "find / -name '*.cache' -exec rm -rfv '{}' \;" >> ~/.bashrc
-echo "find / -name '*cache' -exec rm -rfv '{}' \;" >> ~/.bashrc
-echo "find / -type f -name 'log' -exec rm -rfv '{}' \;" >> ~/.bashrc
-echo "find / -type f -name 'tmp' -exec rm -rfv '{}' \;" >> ~/.bashrc
-echo "find / -name 'rsyslog' -exec rm -rfv '{}' \;" >> ~/.bashrc
+echo "find / -name '*.cache' -exec rm -rfv '{}' \;" >> ~/.bashrcx
+echo "find /var/ -name '*cache' -exec rm -rfv '{}' \;" >> ~/.bashrc
+echo "find / -wholename '*/log/*' -exec rm -rfv '{}' \;" >> ~/.bashrc
+echo "find / -wholename '*/tmp/*' -exec rm -rfv '{}' \;" >> ~/.bashrc
+echo "find / -wholename '*/rsyslog' -exec rm -rfv '{}' \;" >> ~/.bashrc
 echo "rm  ~/.thumbnails/*" >> ~/.bashrc
 echo "rm  ~/.bash_history/*" >> ~/.bashrc
 echo "rm -rfv ~/.moonchild\ productions/" >> ~/.bashrc
@@ -98,6 +98,6 @@ rm -rfv ~/BPC-SOS
 cd ~
 systemctl disable --now rsyslog
 systemctl mask rsyslog
-#systemctl disable --now systemd-journald
-#systemctl mask systemd-journald
+systemctl disable --now systemd-journald
+systemctl mask systemd-journald
 # i will add exit later, now i dont like it
