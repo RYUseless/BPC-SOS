@@ -59,15 +59,15 @@ echo "du / --exclude=/{proc,sys,dev} -abc | sort -n" >> ~/velikost.sh
 clear; echo "Now script will try to remove whole bunch of things" && sleep 2;
 clear
 find /boot/* -type f -name '*0-rescue*' -exec rm -rfv '{}' \; #finding and removing initframs rescue
-#rm -rfv /usr/lib/firmware #removing firmware
-#rm -rfv /usr/share/doc #removing documentation
-#rm -rfv /usr/share/man #removing manuals
-#rm -rfv /usr/share/help #removing help :)
-#rm -rfv /usr/share/sounds #removing sounds 
-#rm -rfv /usr/share/backgrounds #removing backgrounds file
-#rm -rfv /usr/share/gnome
-#rm -rfv /usr/share/icons/hicolor
-#rm -rfv /usr/share/mime/audio/* 	
+rm -rfv /usr/lib/firmware/ #removing firmware
+rm -rfv /usr/share/doc/ #removing documentation
+rm -rfv /usr/share/man/ #removing manuals
+rm -rfv /usr/share/help/ #removing help :)
+rm -rfv /usr/share/sounds/ #removing sounds 
+rm -rfv /usr/share/backgrounds/ #removing backgrounds file
+rm -rfv /usr/share/gnome/
+rm -rfv /usr/share/icons/hicolor/
+rm -rfv /usr/share/mime/audio/* 	
 ## testing something new, so i dont need to rm everything for now :)
 
 ##ENDING PHASE
