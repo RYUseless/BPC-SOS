@@ -21,10 +21,9 @@ startx || exit 1
 sed -i '3s/.*/xterm/' ~/.xinitrc
 
 ## BROWSER + PDF VIEWER
-dnf --setopt=install_weak_deps=False install wget
+dnf -y --setopt=install_weak_deps=False install wget
 wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
-yum  --setopt=install_weak_deps=False install palemoon
-#echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
+echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
 # G V INSTALL
 #dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
 dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
@@ -60,21 +59,15 @@ clear; echo "Now script will try to remove whole bunch of things" && sleep 2;
 clear
 find / -type f -name '*0-rescue*' -exec rm -rfv '{}' \; #finding and removing initframs rescue
 rm -rfv /usr/lib/firmware #removing firmware
-find / -name "*games*" -exec rm -rfv '{}' \;
-find / -name "*mail*" -exec rm -rfv '{}' \;
-find / -name  "opt" -exec rm -rfv '{}' \;
-find / -type f -name "locale" -exec rm -rfv '{}' \; 
-# /usr/share
 rm -rfv /usr/share/doc #removing documentation
 rm -rfv /usr/share/man #removing manuals
-rm -rfv /usr/share/help #removing help :(
-#rm -rfv /usr/share/makedumpfile/*
+rm -rfv /usr/share/help #removing help :)
 rm -rfv /usr/share/sounds #removing sounds 
 rm -rfv /usr/share/zoneinfo #removing zone specification
 rm -rfv /usr/share/backgrounds #removing backgrounds file
 rm -rfv /usr/share/gnome
 rm -rfv /usr/share/icons/hicolor
-#rm -rfv /usr/share/mime/audio/*
+rm -rfv /usr/share/mime/audio/*
  	
 ## testing something new, so i dont need to rm everything for now :)
 
