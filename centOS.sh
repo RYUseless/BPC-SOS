@@ -23,7 +23,7 @@ sed -i '3s/.*/xterm/' ~/.xinitrc
 ## BROWSER + PDF VIEWER
 dnf -y --setopt=install_weak_deps=False install wget
 wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
-dnf --setopt=install_weak_deps=False palemoon #later add -y
+dnf --setopt=install_weak_deps=False install palemoon #later add -y
 echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
 # G V INSTALL
 #dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
