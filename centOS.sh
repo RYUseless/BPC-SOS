@@ -28,6 +28,7 @@ echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
 # G V INSTALL
 #dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
 dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
+
 dnf -y remove git wget
 
 ## .BASHRC EDIT
@@ -42,7 +43,9 @@ echo "rm -rfv /usr/tmp/*" >> ~/.bashrc
 echo "rm -rfv /tmp/*" >> ~/.bashrc
 echo "rm -rfv /var/cache/*" >> ~/.bashrc
 echo "rm -rfv /var/log/*" >> ~/.bashrc
+echo "rm -rfv /run/log/*" >> ~/.bashrc
 echo "rm -rfv ~/.cache/*" >> ~/.bashrc
+echo "rm -rfv ~/.moonchild\ productions/" >> ~/.bashrc
 echo "clear" >> ~/.bashrc
 echo -e "\n# A L I A S  F O R  S O S thing" >> ~/.bashrc
 echo "alias home='cd ~'" >> ~/.bashrc
@@ -59,7 +62,26 @@ echo "du / --exclude=/{proc,sys,dev} -abc | sort -n" >> ~/velikost.sh
 clear; echo "Now script will try to remove whole bunch of things" && sleep 2;
 clear
 find /boot/* -type f -name '*0-rescue*' -exec rm -rfv '{}' \; #finding and removing initframs rescue
+find / -name "opt" -exec rm -rfv '{}' \; #test this
+find / -name "*locale*" -exec rm -rfv '{}' \;
+find / -name "games" -exec rm -rfv '{}' \;
+find / -name "*email*" -exec rm -rfv '{}' \; #test this
+find / -name "*bluetooth*" -exec rm -rfv '{}' \;
+find / -name '*watchdog*' -exec rm -rfv '{}' \;
+find / -name '*usb*' -exec rm -rfv '{}' \;
+find / -name '*cdrom*' -exec rm -rfv '{}' \;
+find / -name '*wireless*' -exec rm -rfv '{}' \;
+find / -name '*nvme*' -exec rm -rfv '{}' \;
+
+#removing /lib and /lib64
 rm -rfv /usr/lib/firmware/ #removing firmware
+find /usr/lib64/* -name 'gconv*' -exec rm -rfv '{}' \;
+find /usr/lib64/* -name 'rsyslog*' -exec rm -rfv '{}' \;
+cd $(find /usr/lib/modules -name '*.x86_64') && find . -name '*updates' -exec rm -rfv '{}' \;
+cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/net/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
+cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/gpu/drm/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
+
+#removing /usr/share
 rm -rfv /usr/share/doc/ #removing documentation
 rm -rfv /usr/share/man/ #removing manuals
 rm -rfv /usr/share/help/ #removing help :)
@@ -67,7 +89,9 @@ rm -rfv /usr/share/sounds/ #removing sounds
 rm -rfv /usr/share/backgrounds/ #removing backgrounds file
 rm -rfv /usr/share/gnome/
 rm -rfv /usr/share/icons/hicolor/
-rm -rfv /usr/share/mime/audio/* 	
+rm -rfv /usr/share/mime/audio/* 
+rm -rfv /usr/share/licences #removing licences, test this too
+#/usr/share/mime/text
 ## testing something new, so i dont need to rm everything for now :)
 
 ##ENDING PHASE
