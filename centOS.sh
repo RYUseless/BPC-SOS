@@ -59,8 +59,8 @@ echo "du / --exclude=/{proc,sys,dev} -abc | sort -n" >> ~/velikost.sh
 clear; echo "Now script will try to remove whole bunch of things" && sleep 2;
 clear
 find /boot/* -type f -name '*0-rescue*' -exec rm -rfv '{}' \; #finding and removing initframs rescue
-find / -name "opt" -exec rm -rfv '{}' \; #test this
-#find / -type f -name "locale	" -exec rm -rfv '{}' \;
+find / -name "opt" -exec rm -rfv '{}' \; 
+find /usr/* -name "locale" -exec rm -rfv '{}' \; #test this for find in root
 find / -name "games" -exec rm -rfv '{}' \;
 find / -name "*email*" -exec rm -rfv '{}' \; #test this
 find / -name "*bluetooth*" -exec rm -rfv '{}' \;
@@ -88,7 +88,7 @@ rm -rfv /usr/share/gnome/
 rm -rfv /usr/share/icons/hicolor/
 rm -rfv /usr/share/mime/audio/* 
 rm -rfv /usr/share/licences #removing licences, test this too
-#/usr/share/mime/text
+/usr/share/mime/text
 ## testing something new, so i dont need to rm everything for now :)
 
 ##ENDING PHASE
@@ -98,6 +98,6 @@ rm -rfv ~/BPC-SOS
 systemctl disable --now rsyslog
 systemctl mask rsyslog
 systemctl disable --now systemd-journald
-#systemctl mask systemd-journald
+#systemctl mask systemd-journald  #was this breaking the internet?
 # i will add exit later, now i dont like it
 home #alias for cd ~
