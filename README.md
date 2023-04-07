@@ -10,7 +10,7 @@ This repo is a centOS script for BPC-SOS project (make Linux OS as smallest as p
 sh BPC-SOS/centOS.sh 
 ```
 > Or you can ``cd`` into ``BPC-SOS/`` first.
-> You can switch to testing branch with: ``git switch testing``
+> You can switch to testing branch with: ``git switch Testing`` there is capital T :)
 > You can view all branches with: ``git branch``
 
 ## What exactly does this script do?
