@@ -29,7 +29,8 @@ echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
 #dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
 dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
 #removing wget and git
-dnf -y remove git wget
+dnf -y --setopt=clean_requirements_on_remove=1 remove git wget
+dnf -y autoremove && dnf clean all; #this should work for orphans and remove dnf cache?
 
 ## .BASHRC EDIT
 echo -e "\n# - - R Y U A  U T I S M - - " >> ~/.bashrc
@@ -62,7 +63,7 @@ find /boot/* -type f -name '*0-rescue*' -exec rm -rfv '{}' \; #finding and remov
 find / -name "opt" -exec rm -rfv '{}' \; 
 find /usr/* -name "locale" -exec rm -rfv '{}' \; #test this for find in root
 find / -name "games" -exec rm -rfv '{}' \;
-find / -name "*email*" -exec rm -rfv '{}' \; #test this
+find / -name "*email*" -exec rm -rfv '{}' \; #this breaks dnf, but i dont need it in this part anyways :)
 find / -name "*bluetooth*" -exec rm -rfv '{}' \;
 find / -name '*watchdog*' -exec rm -rfv '{}' \;
 find / -name '*usb*' -exec rm -rfv '{}' \;
@@ -88,7 +89,7 @@ rm -rfv /usr/share/gnome/
 rm -rfv /usr/share/icons/hicolor/
 rm -rfv /usr/share/mime/audio/* 
 rm -rfv /usr/share/licences #removing licences, test this too
-/usr/share/mime/text
+rm -rfv /usr/share/mime/text
 ## testing something new, so i dont need to rm everything for now :)
 
 ##ENDING PHASE
@@ -98,6 +99,6 @@ rm -rfv ~/BPC-SOS
 systemctl disable --now rsyslog
 systemctl mask rsyslog
 systemctl disable --now systemd-journald
-#systemctl mask systemd-journald  #was this breaking the internet?
-# i will add exit later, now i dont like it
-home #alias for cd ~
+clear; echo "script ended"; sleep 2;
+cd ~ # just in case
+exit 0
