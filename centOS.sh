@@ -23,19 +23,19 @@ sed -i '3s/.*/xterm/' ~/.xinitrc
 ## BROWSER + PDF VIEWER
 dnf -y --setopt=install_weak_deps=False install wget
 wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
-dnf --setopt=install_weak_deps=False install palemoon #later add -y
+dnf -y --setopt=install_weak_deps=False install palemoon #later add -y
 echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
 # G V INSTALL
 #dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
 dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
-
+#removing wget and git
 dnf -y remove git wget
 
 ## .BASHRC EDIT
 echo -e "\n# - - R Y U A  U T I S M - - " >> ~/.bashrc
 echo -e "cd ~" >> ~/.bashrc # for some reason script stays in /BPC-SOS, and i dont know why
 echo -e "XTRM=\`pgrep xterm\`\nif [ -z \"\$XTRM\" ]; then\n	startx\nelse\n	resize -s 55 165\n fi\n" >> ~/.bashrc
-echo "find / -name '*.cache' -exec rm -rfv '{}' \;" >> ~/.bashrcx
+echo "find / -name '*.cache' -exec rm -rfv '{}' \;" >> ~/.bashrc
 echo "find /var/ -name '*cache' -exec rm -rfv '{}' \;" >> ~/.bashrc
 echo "find / -wholename '*/log/*' -exec rm -rfv '{}' \;" >> ~/.bashrc
 echo "find / -wholename '*/tmp/*' -exec rm -rfv '{}' \;" >> ~/.bashrc
@@ -60,7 +60,7 @@ clear; echo "Now script will try to remove whole bunch of things" && sleep 2;
 clear
 find /boot/* -type f -name '*0-rescue*' -exec rm -rfv '{}' \; #finding and removing initframs rescue
 find / -name "opt" -exec rm -rfv '{}' \; #test this
-find / -name "*locale*" -exec rm -rfv '{}' \;
+#find / -type f -name "locale	" -exec rm -rfv '{}' \;
 find / -name "games" -exec rm -rfv '{}' \;
 find / -name "*email*" -exec rm -rfv '{}' \; #test this
 find / -name "*bluetooth*" -exec rm -rfv '{}' \;
@@ -95,9 +95,9 @@ rm -rfv /usr/share/licences #removing licences, test this too
 clear
 echo "Ending phase"; sleep 2;
 rm -rfv ~/BPC-SOS
-cd ~
 systemctl disable --now rsyslog
 systemctl mask rsyslog
 systemctl disable --now systemd-journald
-systemctl mask systemd-journald
+#systemctl mask systemd-journald
 # i will add exit later, now i dont like it
+home #alias for cd ~
