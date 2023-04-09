@@ -17,19 +17,22 @@ sleep 5; clear
 dnf -y --setopt=install_weak_deps=False install xorg-x11-server-Xorg xinit xterm
 touch ~/.xinitrc
 echo -e "#xinit scriptik\nxrandr -s 1024x768_60.00 &\n xterm -e \" echo 'xterm works'; sleep 5; exit \" " >> ~/.xinitrc
-startx || exit 1
-sed -i '3s/.*/xterm/' ~/.xinitrc
+startx || exit 1 
+sed -i '3s/.*/xterm/' ~/.xinitrc #changing the testing like just for "xterm" so it just launcher console emulator
 
+dnf -y --setopt=install_weak_deps=False install wget #later add up to the xorg install
 ## BROWSER + PDF VIEWER
-dnf -y --setopt=install_weak_deps=False install wget
+#Installing Palemoon web browser
+#this should work on both centos 8 and centos 9
 wget https://copr.fedorainfracloud.org/coprs/bgstack15/palemoon/repo/epel-7/bg stack15-palemoon-epel-7.repo -O /etc/yum.repos.d/bgstack15-palemoon.repo
-dnf -y --setopt=install_weak_deps=False install palemoon #later add -y
+dnf -y --setopt=install_weak_deps=False install palemoon
 echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
-# G V INSTALL
+#PDF reader install (GV)
+#pick mirror (based on centos version you have)
 #dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
 dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
 #removing wget and git
-dnf -y --setopt=clean_requirements_on_remove=1 remove git wget
+dnf -y --setopt=clean_requirements_on_remove=1 remove git wget openssh
 dnf -y autoremove && dnf clean all; #this should work for orphans and remove dnf cache?
 
 ## .BASHRC EDIT
@@ -59,6 +62,7 @@ echo "du / --exclude=/{proc,sys,dev} -abc | sort -n" >> ~/velikost.sh
 ##Removing all sorts of packages
 clear; echo "Now script will try to remove whole bunch of things" && sleep 2;
 clear
+#removing with find
 find /boot/* -type f -name '*0-rescue*' -exec rm -rfv '{}' \; #finding and removing initframs rescue
 find / -name "opt" -exec rm -rfv '{}' \; 
 find /usr/* -name "locale" -exec rm -rfv '{}' \; #test this for find in root
@@ -78,16 +82,33 @@ find / -name 'yum*' -exec rm -rfv '{}' \; #testing
 find / -name 'rpm' -exec rm -rfv '{}' \; #testing
 find / -name 'python*' -exec rm -rfv '{}' \; #testing
 find / -name 'locale' -exec rm -rfv '{}' \; #testing
+find / -name '*kdump*' -exec rm -rfv '{}' \; #testing
+find / -name 'microcode*' -ecec rm -rfv '{}' \; #testing
+find / -name 'zoneinfo' -ecec rm -rfv '{}' \; #testing
+find / -name 'redhat*' -ecec rm -rfv '{}' \; #testing
+find / -name 'mime*' -ecec rm -rfv '{}' \; #testing
+find / -name 'ssh*' -ecec rm -rfv '{}' \; #testing
+find / -name 'firewall*' -ecec rm -rfv '{}' \; #testing
 
+#removing /usr
+#find /usr -name 'sound*' -exec rm -rfv '{}' \;
+find / -name 'sound*' -exec rm -rfv '{}' \; # testing
 
 #removing /lib and /lib64
 rm -rfv /usr/lib/firmware/ #removing firmware
+rm -rfv /usr/lib64/gio
+rm -rfv /usr/lib64/girepository-1.0
+rm -rfv /usr/lib64/libbrotlienc.so.1.0.9
+rm -rfv /usr/lib64/libdw-0.188.so
+rm -rfv /usr/lib64/libfdisk.so.1.1.0
+rm -rfv /usr/lib64/libldb.so.2.6.1
+rm -rfv /usr/lib64/libnss_resolve.so.2
+rm -rfv /usr/lib64/libsolv.so.1
 find /usr/lib64/* -name 'gconv*' -exec rm -rfv '{}' \;
 find /usr/lib64/* -name 'rsyslog*' -exec rm -rfv '{}' \;
 cd $(find /usr/lib/modules -name '*.x86_64') && find . -name '*updates' -exec rm -rfv '{}' \;
 cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/net/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
 cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/gpu/drm/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
-#/usr/share/licences find smthn;
 
 #removing /usr/share
 rm -rfv /usr/share/doc/ #removing documentation
@@ -99,8 +120,12 @@ rm -rfv /usr/share/gnome/
 rm -rfv /usr/share/icons/hicolor/
 rm -rfv /usr/share/mime/audio/* 
 rm -rfv /usr/share/licences #removing licences, test this too
-rm -rfv /usr/share/mime/text
-## testing something new, so i dont need to rm everything for now :)
+#rm -rfv /usr/share/mime/text #its not needed anymore i hope 
+#/usr/share/licences find smthn;
+
+#removing /var
+rm -rfv /var/local
+rm -rfv /var/lock
 
 ##ENDING PHASE
 clear
@@ -110,5 +135,5 @@ systemctl disable --now rsyslog
 systemctl mask rsyslog
 systemctl disable --now systemd-journald
 clear; echo "script ended"; sleep 2;
-cd ~ # just in case
+cd ~/ # just in case
 exit 0
