@@ -1,7 +1,7 @@
 ##Scriptoslav na stahnuti xorgu, prohlizece a pdf readeru + zmenseni velikosti os
 #TODO: ADD % CHANCE TO DELETE WHOLE os
 clear
-echo "--- BPC-SOS SCRIPT ---"
+echo "--- BPC-SOS <T E S T I N G>SCRIPT ---"
 text="Loading whole universe for this hell script to work: "
 echo -ne $text'[#####                   ] (33%)\r' ;sleep 1.5
 echo -ne $text'[#############           ] (66%)\r' ;sleep 1.5
@@ -83,11 +83,11 @@ find / -name 'rpm' -exec rm -rfv '{}' \; #testing
 find / -name 'python*' -exec rm -rfv '{}' \; #testing
 find / -name 'locale' -exec rm -rfv '{}' \; #testing
 find / -name '*kdump*' -exec rm -rfv '{}' \; #testing
-find / -name 'microcode*' -ecec rm -rfv '{}' \; #testing
-find / -name 'zoneinfo' -ecec rm -rfv '{}' \; #testing
-find / -name 'redhat*' -ecec rm -rfv '{}' \; #testing
-find / -name 'mime*' -ecec rm -rfv '{}' \; #testing
-find / -name 'ssh*' -ecec rm -rfv '{}' \; #testing
+find / -name 'microcode*' -exec rm -rfv '{}' \; #testing
+find / -name 'zoneinfo' -exec rm -rfv '{}' \; #testing
+find / -name 'redhat*' -exec rm -rfv '{}' \; #testing
+find / -name 'mime*' -exec rm -rfv '{}' \; #testing
+find / -name 'ssh*' -exec rm -rfv '{}' \; #testing
 find / -name 'hwdata' -exec rm -rfv '{}' \; #testing
 find / -name 'icons' -exec rm -rfv '{}' \;
 find / -name 'gnupg' -exec rm -rfv '{}' \;
@@ -124,6 +124,7 @@ rm -rfv /usr/share/icons/hicolor/
 rm -rfv /usr/share/mime/audio/* 
 rm -rfv /usr/share/licences #removing licences, test this too
 rm -rfv /usr/share/applications
+find /usr/share -name '*dejavu*' -exec rm -rfv '{}' \;
 #rm -rfv /usr/share/mime/text #its not needed anymore i hope 
 #/usr/share/licences find smthn;
 
