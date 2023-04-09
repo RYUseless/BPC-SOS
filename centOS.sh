@@ -32,7 +32,7 @@ echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
 #dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
 dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
 #removing wget and git
-dnf -y --setopt=clean_requirements_on_remove=1 remove git wget openssh
+dnf -y --setopt=clean_requirements_on_remove=1 remove git wget openssh firewalld
 dnf -y autoremove && dnf clean all; #this should work for orphans and remove dnf cache?
 
 ## .BASHRC EDIT
