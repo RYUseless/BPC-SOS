@@ -83,12 +83,11 @@ find / -name 'rpm' -exec rm -rfv '{}' \; #testing
 find / -name 'python*' -exec rm -rfv '{}' \; #testing
 find / -name 'locale' -exec rm -rfv '{}' \; #testing
 find / -name '*kdump*' -exec rm -rfv '{}' \; #testing
-find / -name 'microcode*' -ecec rm -rfv '{}' \; #testing
-find / -name 'zoneinfo' -ecec rm -rfv '{}' \; #testing
-find / -name 'redhat*' -ecec rm -rfv '{}' \; #testing
-find / -name 'mime*' -ecec rm -rfv '{}' \; #testing
-find / -name 'ssh*' -ecec rm -rfv '{}' \; #testing
-find / -name 'firewall*' -ecec rm -rfv '{}' \; #testing
+find / -name 'microcode*' -ecex rm -rfv '{}' \; #testing
+find / -name 'zoneinfo' -ecex rm -rfv '{}' \; #testing
+find / -name 'redhat*' -ecex rm -rfv '{}' \; #testing
+find / -name 'mime*' -ecex rm -rfv '{}' \; #testing
+find / -name 'ssh*' -ecex rm -rfv '{}' \; #testing
 
 #removing /usr
 #find /usr -name 'sound*' -exec rm -rfv '{}' \;
