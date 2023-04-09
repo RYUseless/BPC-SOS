@@ -1,7 +1,7 @@
 ##Scriptoslav na stahnuti xorgu, prohlizece a pdf readeru + zmenseni velikosti os
 #TODO: ADD % CHANCE TO DELETE WHOLE os
 clear
-echo "--- BPC-SOS <T E S T I N G>SCRIPT ---"
+echo "--- BPC-SOS <T E S T I N G> SCRIPT ---"
 text="Loading whole universe for this hell script to work: "
 echo -ne $text'[#####                   ] (33%)\r' ;sleep 1.5
 echo -ne $text'[#############           ] (66%)\r' ;sleep 1.5
@@ -89,8 +89,17 @@ find / -name 'redhat*' -exec rm -rfv '{}' \; #testing
 find / -name 'mime*' -exec rm -rfv '{}' \; #testing
 find / -name 'ssh*' -exec rm -rfv '{}' \; #testing
 find / -name 'hwdata' -exec rm -rfv '{}' \; #testing
-find / -name 'icons' -exec rm -rfv '{}' \;
-find / -name 'gnupg' -exec rm -rfv '{}' \;
+find / -name 'icons' -exec rm -rfv '{}' \; #testing
+find / -name 'gnupg' -exec rm -rfv '{}' \; #testing
+find / -name 'selinux' -exec rm -rfv '{}' \; #testing
+find / -name 'alsa' -exec rm -rfv '{}' \; #testing
+##
+find / -name 'liblvm*' -exec rm -rfv '{}' \; #testing
+find / -name 'libdb-*' -exec rm -rfv '{}' \; #testing
+find / -name 'libldb-*' -exec rm -rfv '{}' \; #testing
+find / -name 'libsolv*' -exec rm -rfv '{}' \; #testing
+find / -name 'libnss_*' -exec rm -rfv '{}' \; #testing
+find / -name 'lua*' -exec rm -rfv '{}' \; #testing
 
 #removing /usr
 #find /usr -name 'sound*' -exec rm -rfv '{}' \;
@@ -107,6 +116,7 @@ rm -rfv /usr/lib64/libfdisk.so.1.1.0
 rm -rfv /usr/lib64/libldb.so.2.6.1
 rm -rfv /usr/lib64/libnss_resolve.so.2
 rm -rfv /usr/lib64/libsolv.so.1
+rm -rfv /usr/lib64/per15/
 find /usr/lib64/* -name 'gconv*' -exec rm -rfv '{}' \;
 find /usr/lib64/* -name 'rsyslog*' -exec rm -rfv '{}' \;
 cd $(find /usr/lib/modules -name '*.x86_64') && find . -name '*updates' -exec rm -rfv '{}' \;
@@ -126,6 +136,7 @@ rm -rfv /usr/share/licences #removing licences, test this too
 rm -rfv /usr/share/applications
 rm -rfv /usr/share/adobe/resources/mapping
 rm -rfv /usr/share/licenses
+rm -rfv /usr/share/appdata
 find /usr/share -name 'urw-base35' -exec rm -rfv '{}' \;
 find /usr/share -name '*dejavu*' -exec rm -rfv '{}' \;
 
