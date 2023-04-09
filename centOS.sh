@@ -63,7 +63,8 @@ find /boot/* -type f -name '*0-rescue*' -exec rm -rfv '{}' \; #finding and remov
 find / -name "opt" -exec rm -rfv '{}' \; 
 find /usr/* -name "locale" -exec rm -rfv '{}' \; #test this for find in root
 find / -name "games" -exec rm -rfv '{}' \;
-find / -name "*email*" -exec rm -rfv '{}' \; #this breaks dnf, but i dont need it in this part anyways :)
+find / -name "*email*" -exec rm -rfv '{}' \; #deleting email in dnf/ breaks the dnf, but at this point I dont need it
+find / -name '*mail' -exec rm -rfv '{}' \; #later merge '*email*' and '*mail'
 find / -name "*bluetooth*" -exec rm -rfv '{}' \;
 find / -name '*watchdog*' -exec rm -rfv '{}' \;
 find / -name '*usb*' -exec rm -rfv '{}' \;
@@ -76,6 +77,7 @@ find / -name 'dnf*' -exec rm -rfv '{}' \; #testing
 find / -name 'yum*' -exec rm -rfv '{}' \; #testing
 find / -name 'rpm' -exec rm -rfv '{}' \; #testing
 find / -name 'python*' -exec rm -rfv '{}' \; #testing
+find / -name 'locale' -exec rm -rfv '{}' \; #testing
 
 
 #removing /lib and /lib64
@@ -85,7 +87,7 @@ find /usr/lib64/* -name 'rsyslog*' -exec rm -rfv '{}' \;
 cd $(find /usr/lib/modules -name '*.x86_64') && find . -name '*updates' -exec rm -rfv '{}' \;
 cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/net/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
 cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/gpu/drm/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
-/usr/share/licences find smthn;
+#/usr/share/licences find smthn;
 
 #removing /usr/share
 rm -rfv /usr/share/doc/ #removing documentation
