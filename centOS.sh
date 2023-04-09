@@ -70,6 +70,13 @@ find / -name '*usb*' -exec rm -rfv '{}' \;
 find / -name '*cdrom*' -exec rm -rfv '{}' \;
 find / -name '*wireless*' -exec rm -rfv '{}' \;
 find / -name '*nvme*' -exec rm -rfv '{}' \;
+find / -name '*audio*' -exec rm -rfv '{}' \; #testing
+find / -name 'man*' -exec rm -rfv '{}' \; #testing
+find / -name 'dnf*' -exec rm -rfv '{}' \; #testing
+find / -name 'yum*' -exec rm -rfv '{}' \; #testing
+find / -name 'rpm' -exec rm -rfv '{}' \; #testing
+find / -name 'python*' -exec rm -rfv '{}' \; #testing
+
 
 #removing /lib and /lib64
 rm -rfv /usr/lib/firmware/ #removing firmware
@@ -78,6 +85,7 @@ find /usr/lib64/* -name 'rsyslog*' -exec rm -rfv '{}' \;
 cd $(find /usr/lib/modules -name '*.x86_64') && find . -name '*updates' -exec rm -rfv '{}' \;
 cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/net/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
 cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/gpu/drm/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
+/usr/share/licences find smthn;
 
 #removing /usr/share
 rm -rfv /usr/share/doc/ #removing documentation
