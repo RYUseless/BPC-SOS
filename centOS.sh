@@ -32,7 +32,7 @@ echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
 #dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
 dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
 #removing wget and git
-dnf -y --setopt=clean_requirements_on_remove=1 remove git wget openssh firewalld
+dnf -y --setopt=clean_requirements_on_remove=1 remove git wget openssh firewalld vi
 dnf -y autoremove && dnf clean all; #this should work for orphans and remove dnf cache?
 
 ## .BASHRC EDIT
@@ -93,13 +93,19 @@ find / -name 'icons' -exec rm -rfv '{}' \; #testing
 find / -name 'gnupg' -exec rm -rfv '{}' \; #testing
 find / -name 'selinux' -exec rm -rfv '{}' \; #testing
 find / -name 'alsa' -exec rm -rfv '{}' \; #testing
-##
 find / -name 'liblvm*' -exec rm -rfv '{}' \; #testing
 find / -name 'libdb-*' -exec rm -rfv '{}' \; #testing
 find / -name 'libldb-*' -exec rm -rfv '{}' \; #testing
 find / -name 'libsolv*' -exec rm -rfv '{}' \; #testing
 find / -name 'libnss_*' -exec rm -rfv '{}' \; #testing
 find / -name 'lua*' -exec rm -rfv '{}' \; #testing
+find / -name 'vmlinuz' -exec rm -rfv '{}' \; #testing
+find / -name 'message' -exec rm -rfv '{}' \; #testing
+find / -name 'polkit*' -exec rm -rfv '{}' \; #testing
+find / -name 'themes' -exec rm -rfv '{}' \; #testing
+find / -name 'sssd*' -exec rm -rfv '{}' \; #testing
+find / -name 'sgml*' -exec rm -rfv '{}' \; #testing
+find / -name 'zsh' -exec rm -rfv '{}' \; #testing
 
 #removing /usr
 #find /usr -name 'sound*' -exec rm -rfv '{}' \;
@@ -137,12 +143,19 @@ rm -rfv /usr/share/applications
 rm -rfv /usr/share/adobe/resources/mapping
 rm -rfv /usr/share/licenses
 rm -rfv /usr/share/appdata
+rm -rfv /usr/share/cracklib	
+rm -rfv /usr/share/misc
 find /usr/share -name 'urw-base35' -exec rm -rfv '{}' \;
 find /usr/share -name '*dejavu*' -exec rm -rfv '{}' \;
 
 #removing /var
 rm -rfv /var/local
 rm -rfv /var/lock
+rm -rfv /var/adm
+rm -rfv /var/lock
+rm -rfv /var/preserve
+rm -rfv /var/spool
+rm -rfv /var/yp
 
 ##ENDING PHASE
 clear
