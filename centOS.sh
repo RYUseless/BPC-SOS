@@ -124,9 +124,10 @@ rm -rfv /usr/share/icons/hicolor/
 rm -rfv /usr/share/mime/audio/* 
 rm -rfv /usr/share/licences #removing licences, test this too
 rm -rfv /usr/share/applications
+rm -rfv /usr/share/adobe/resources/mapping
+rm -rfv /usr/share/licenses
+find /usr/share -name 'urw-base35' -exec rm -rfv '{}' \;
 find /usr/share -name '*dejavu*' -exec rm -rfv '{}' \;
-#rm -rfv /usr/share/mime/text #its not needed anymore i hope 
-#/usr/share/licences find smthn;
 
 #removing /var
 rm -rfv /var/local
