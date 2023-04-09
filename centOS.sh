@@ -83,15 +83,19 @@ find / -name 'rpm' -exec rm -rfv '{}' \; #testing
 find / -name 'python*' -exec rm -rfv '{}' \; #testing
 find / -name 'locale' -exec rm -rfv '{}' \; #testing
 find / -name '*kdump*' -exec rm -rfv '{}' \; #testing
-find / -name 'microcode*' -ecex rm -rfv '{}' \; #testing
-find / -name 'zoneinfo' -ecex rm -rfv '{}' \; #testing
-find / -name 'redhat*' -ecex rm -rfv '{}' \; #testing
-find / -name 'mime*' -ecex rm -rfv '{}' \; #testing
-find / -name 'ssh*' -ecex rm -rfv '{}' \; #testing
+find / -name 'microcode*' -ecec rm -rfv '{}' \; #testing
+find / -name 'zoneinfo' -ecec rm -rfv '{}' \; #testing
+find / -name 'redhat*' -ecec rm -rfv '{}' \; #testing
+find / -name 'mime*' -ecec rm -rfv '{}' \; #testing
+find / -name 'ssh*' -ecec rm -rfv '{}' \; #testing
+find / -name 'hwdata' -exec rm -rfv '{}' \; #testing
+find / -name 'icons' -exec rm -rfv '{}' \;
+find / -name 'gnupg' -exec rm -rfv '{}' \;
 
 #removing /usr
 #find /usr -name 'sound*' -exec rm -rfv '{}' \;
 find / -name 'sound*' -exec rm -rfv '{}' \; # testing
+find /usr -name 'info' -exec rm -rfv '{}' \; #testing
 
 #removing /lib and /lib64
 rm -rfv /usr/lib/firmware/ #removing firmware
@@ -119,6 +123,7 @@ rm -rfv /usr/share/gnome/
 rm -rfv /usr/share/icons/hicolor/
 rm -rfv /usr/share/mime/audio/* 
 rm -rfv /usr/share/licences #removing licences, test this too
+rm -rfv /usr/share/applications
 #rm -rfv /usr/share/mime/text #its not needed anymore i hope 
 #/usr/share/licences find smthn;
 
