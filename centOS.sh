@@ -106,6 +106,12 @@ find / -name 'themes' -exec rm -rfv '{}' \; #testing
 find / -name 'sssd*' -exec rm -rfv '{}' \; #testing
 find / -name 'sgml*' -exec rm -rfv '{}' \; #testing
 find / -name 'zsh' -exec rm -rfv '{}' \; #testing
+find / -name 'firewalld' -exec rm -rfv '{}' \; #testing
+find / -name 'nm-initrd-generator' -exec rm -rfv '{}' \; #testing
+find / -name 'bash-completion' -exec rm -rfv '{}' \; #testing
+find / -name 'glib*' -exec rm -rfv '{}' \; #testing
+find / -name 'dracut' -exec rm -rfv '{}' \; #testing
+find / -name 'pki' -exec rm -rfv '{}' \; #testing
 
 #removing /usr
 #find /usr -name 'sound*' -exec rm -rfv '{}' \;
@@ -123,8 +129,11 @@ rm -rfv /usr/lib64/libldb.so.2.6.1
 rm -rfv /usr/lib64/libnss_resolve.so.2
 rm -rfv /usr/lib64/libsolv.so.1
 rm -rfv /usr/lib64/per15/
+rm -rfv /usr/lib/udev/hwdb.d/
+rm -rfv /usr/lib/.build-id
 find /usr/lib64/* -name 'gconv*' -exec rm -rfv '{}' \;
 find /usr/lib64/* -name 'rsyslog*' -exec rm -rfv '{}' \;
+find /usr/lib -name 'iso*' -exec rm -rfv '{}' \; #testing
 cd $(find /usr/lib/modules -name '*.x86_64') && find . -name '*updates' -exec rm -rfv '{}' \;
 cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/net/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
 cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/gpu/drm/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
@@ -145,6 +154,8 @@ rm -rfv /usr/share/licenses
 rm -rfv /usr/share/appdata
 rm -rfv /usr/share/cracklib	
 rm -rfv /usr/share/misc
+rm -rfv /usr/share/gcc-11
+rm -rfv /usr/share/libthai
 find /usr/share -name 'urw-base35' -exec rm -rfv '{}' \;
 find /usr/share -name '*dejavu*' -exec rm -rfv '{}' \;
 
@@ -156,6 +167,7 @@ rm -rfv /var/lock
 rm -rfv /var/preserve
 rm -rfv /var/spool
 rm -rfv /var/yp
+rm -rfv /var/lock
 
 ##ENDING PHASE
 clear
