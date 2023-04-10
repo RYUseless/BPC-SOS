@@ -112,6 +112,7 @@ find / -name 'bash-completion' -exec rm -rfv '{}' \; #testing
 find / -name 'glib*' -exec rm -rfv '{}' \; #testing
 find / -name 'dracut' -exec rm -rfv '{}' \; #testing
 find / -name 'pki' -exec rm -rfv '{}' \; #testing
+find / -name '*dump*' -exec rm -rfv '{}' \; #testing
 
 #removing /usr
 #find /usr -name 'sound*' -exec rm -rfv '{}' \;
@@ -133,7 +134,7 @@ rm -rfv /usr/lib/udev/hwdb.d/
 rm -rfv /usr/lib/.build-id
 find /usr/lib64/* -name 'gconv*' -exec rm -rfv '{}' \;
 find /usr/lib64/* -name 'rsyslog*' -exec rm -rfv '{}' \;
-find /usr/lib -name 'iso*' -exec rm -rfv '{}' \; #testing
+find /usr/lib -name '*iso*' -exec rm -rfv '{}' \; #testing
 cd $(find /usr/lib/modules -name '*.x86_64') && find . -name '*updates' -exec rm -rfv '{}' \;
 cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/net/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
 cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/gpu/drm/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
@@ -156,6 +157,9 @@ rm -rfv /usr/share/cracklib
 rm -rfv /usr/share/misc
 rm -rfv /usr/share/gcc-11
 rm -rfv /usr/share/libthai
+rm -rfv /usr/share/pkgconfig
+rm -rfv /usr/share/systemtap	
+rm -rfv /usr/share/omf
 find /usr/share -name 'urw-base35' -exec rm -rfv '{}' \;
 find /usr/share -name '*dejavu*' -exec rm -rfv '{}' \;
 
