@@ -126,6 +126,8 @@ find / -name '*sr_mod*' -exec rm -rfv '{}' \; #testing
 find / -name '*README*' -exec rm -rfv '{}' \; #testing
 #metadata
 #gdb
+#ipv6
+#history
 
 #removing /usr
 #find /usr -name 'sound*' -exec rm -rfv '{}' \;
