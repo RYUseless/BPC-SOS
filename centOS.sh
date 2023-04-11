@@ -33,12 +33,11 @@ echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
 dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
 #removing programs and ulities
 systemctl disable --now systemd-journald
-systemctl disable firewalld
-systemctl mask firewalld #pokus
-systemctl disable sshd
+systemctl disable --nowfirewalld
+systemctl disable --now sshd
 systemctl disable --now rsyslog
 systemctl mask rsyslog
-dnf -y remove git wget openssh firewalld vim-minimal vi slang findutils python#-systemd sg3_* rpm-plugin-selinux.x86_64 rpm-plugin-audit.x86_64 rpm-plugin-systemd-inhibit.x86_64 rsyslog.x86_64 
+dnf -y remove git wget openssh firewalld vim-minimal vi slang python#-systemd sg3_* rpm-plugin-selinux.x86_64 rpm-plugin-audit.x86_64 rpm-plugin-systemd-inhibit.x86_64 rsyslog.x86_64 
 #the "--setopt=clean_requirements_on_remove=True" is useless kinda, as it is in dnf config
 dnf -y autoremove && dnf clean all; #this should work for orphans and remove dnf cache?
 
