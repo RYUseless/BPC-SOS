@@ -31,8 +31,15 @@ echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
 #pick mirror (based on centos version you have)
 #dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/8/Everything/x86_64/Packages/g/gv-3.7.4-25.el8.x86_64.rpm #CentOS-8
 dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
-#removing wget and git
-dnf -y --setopt=clean_requirements_on_remove=1 remove git wget openssh firewalld vi
+#removing programs and ulities
+systemctl disable --now systemd-journald
+systemctl disable firewalld
+systemctl mask firewalld #pokus
+systemctl disable sshd
+systemctl disable --now rsyslog
+systemctl mask rsyslog
+dnf -y remove git wget openssh firewalld vim-minimal vi slang findutils python#-systemd sg3_* rpm-plugin-selinux.x86_64 rpm-plugin-audit.x86_64 rpm-plugin-systemd-inhibit.x86_64 rsyslog.x86_64 
+#the "--setopt=clean_requirements_on_remove=True" is useless kinda, as it is in dnf config
 dnf -y autoremove && dnf clean all; #this should work for orphans and remove dnf cache?
 
 ## .BASHRC EDIT
@@ -117,6 +124,7 @@ find / -name 'radeon' -exec rm -rfv '{}' \; #testing
 find / -name 'amd' -exec rm -rfv '{}' \; #testing
 find / -name '*sr_mod*' -exec rm -rfv '{}' \; #testing
 #metadata
+#gdb
 
 #removing /usr
 #find /usr -name 'sound*' -exec rm -rfv '{}' \;
@@ -125,7 +133,8 @@ find /usr -name 'info' -exec rm -rfv '{}' \; #testing
 find /usr/ -name 'firmware' -exec rm -rfv '{}' \; #testing, merge with firmware if works
 
 #removing /lib and /lib64
-rm -rfv /usr/lib/firmware/ #removing firmware
+#handpicking /usr/lib64
+rm -rfv /usr/lib64/cracklib_dict.pwi
 rm -rfv /usr/lib64/gio
 rm -rfv /usr/lib64/girepository-1.0
 rm -rfv /usr/lib64/libbrotlienc.so.1.0.9
@@ -135,10 +144,250 @@ rm -rfv /usr/lib64/libldb.so.2.6.1
 rm -rfv /usr/lib64/libnss_resolve.so.2
 rm -rfv /usr/lib64/libsolv.so.1
 rm -rfv /usr/lib64/per15/
-rm -rfv /usr/lib/udev/hwdb.d/
-rm -rfv /usr/lib/.build-id
+rm -rfv /usr/lib64/cracklib_dict.pwd
+rm -rfv /usr/lib64/cracklib_dict.hwm
+rm -rfv /usr/lib64/libldb.so.2
+rm -rfv /usr/lib64/libdw.so.1
+rm -rfv /usr/lib64/libbrotlienc.so.1
+rm -rfv /usr/lib64/libfdisk.so.1
+rm -rfv /usr/lib64/libEGL_mesa.so.0.0.0
+rm -rfv /usr/lib64/libEGL_mesa.so.0
+rm -rfv /usr/lib64/libEGL.so.1.1.0
+rm -rfv /usr/lib64/libEGL.so.1
+rm -rfv /usr/lib64/libGL.so.1.7.0
+rm -rfv /usr/lib64/libGL.so.1
+rm -rfv /usr/lib64/libGLX_system.so.0
+rm -rfv /usr/lib64/libGLX_mesa.so.0.0.0
+rm -rfv /usr/lib64/libGLX_mesa.so.0
+rm -rfv /usr/lib64/libGLX.so.0.0.0
+rm -rfv /usr/lib64/libGLX.so.0
+rm -rfv /usr/lib64/libGLdispatch.so.0.0.0
+rm -rfv /usr/lib64/libGLdispatch.so.0
+rm -rfv /usr/lib64/libBrokenLocale.so.1
+rm -rfv /usr/lib64/libaio.so.1.0.0
+rm -rfv /usr/lib64/libaio.so.1.0.1
+rm -rfv /usr/lib64/libaio.so.1
+rm -rfv /usr/lib64/libanl.so.1
+rm -rfv /usr/lib64/libarchive.so.13.5.3
+rm -rfv /usr/lib64/libarchive.so.13
+rm -rfv /usr/lib64/libasm.so.1
+rm -rfv /usr/lib64/libasm-0.188.so
+rm -rfv /usr/lib64/libasprintf.so.0.0.0
+rm -rfv /usr/lib64/libasprintf.so.0
+rm -rfv /usr/lib64/libassuan.so.0.8.5
+rm -rfv /usr/lib64/libassuan.so.0
+rm -rfv /usr/lib64/libatopology.so.2.0.0
+rm -rfv /usr/lib64/libatopology.so.2
+rm -rfv /usr/lib64/libauparse.so.0.0.0
+rm -rfv /usr/lib64/libauparse.so.0
+rm -rfv /usr/lib64/libauthselect.so.3.1.1
+rm -rfv /usr/lib64/libauthselect.so.3
+rm -rfv /usr/lib64/libbasicobjects.so.0.1.0
+rm -rfv /usr/lib64/libbasicobjects.so.0
+rm -rfv /usr/lib64/libbpf.so.1.0.0
+rm -rfv /usr/lib64/libbpf.so.1
+rm -rfv /usr/lib64/libcairo-script-interpreter.so.2.11704.0
+rm -rfv /usr/lib64/libcairo-script-interpreter.so.2
+rm -rfv /usr/lib64/libcares.so.2.4.2
+rm -rfv /usr/lib64/libcares.so.2
+rm -rfv /usr/lib64/libcbor.so.0.7.0
+rm -rfv /usr/lib64/libcbor.so.0.7
+rm -rfv /usr/lib64/libcollection.so.4
+rm -rfv /usr/lib64/libcollection.so.4.1.1
+rm -rfv /usr/lib64/libcrack.so.2.9.0
+rm -rfv /usr/lib64/libcrack.so.2
+rm -rfv /usr/lib64/libcrypt.so.1.1.0
+rm -rfv /usr/lib64/libcrypt.so.1
+rm -rfv /usr/lib64/libdaemon.so.0
+rm -rfv /usr/lib64/libdaemon.so.0.5.0
+rm -rfv /usr/lib64/libdb-5.3.so
+rm -rfv /usr/lib64/libdb-5.so
+rm -rfv /usr/lib64/libdevmapper-event.so.1.02
+rm -rfv /usr/lib64/libdevmapper-event-lvm2mirror.so
+rm -rfv /usr/lib64/libdevmapper-event-lvm2thin.so
+rm -rfv /usr/lib64/libdevmapper-event-lvm2vdo.so
+rm -rfv /usr/lib64/libdevmapper-event-lvm2snapshot.so
+rm -rfv /usr/lib64/libdevmapper-event-lvm2raid.so
+rm -rfv /usr/lib64/libdevmapper-event-lvm2.so.2.03
+rm -rfv /usr/lib64/libdhash.so.1.1.0
+rm -rfv /usr/lib64/libdhash.so.1
+rm -rfv /usr/lib64/libdevmapper.so.1.02
+rm -rfv /usr/lib64/libdnf.so.2
+rm -rfv /usr/lib64/libdnf
+rm -rfv /usr/lib64/libdrop_ambient.so.0.0.0
+rm -rfv /usr/lib64/libe2p.so.2.3
+rm -rfv /usr/lib64/libe2p.so.2
+rm -rfv /usr/lib64/libedit.so.0
+rm -rfv /usr/lib64/libedit.so.0.0.64
+rm -rfv /usr/lib64/libefa.so.1.2.44.0
+rm -rfv /usr/lib64/libefa.so.1
+rm -rfv /usr/lib64/libelf.so.1
+rm -rfv /usr/lib64/libelf-0.188.so
+rm -rfv /usr/lib64/libepoxy.so.0.0.0
+rm -rfv /usr/lib64/libepoxy.so.0
+rm -rfv /usr/lib64/libestr.so.0.0.0
+rm -rfv /usr/lib64/libestr.so.0
+rm -rfv /usr/lib64/libext2fs.so.2.4
+rm -rfv /usr/lib64/libext2fs.so.2
+rm -rfv /usr/lib64/libfastjson.so.4.3.0
+rm -rfv /usr/lib64/libfastjson.so.4
+rm -rfv /usr/lib64/libfido2.so.1.6.0
+rm -rfv /usr/lib64/libfido2.so.1
+rm -rfv /usr/lib64/libform.so.6.2
+rm -rfv /usr/lib64/libform.so.6
+rm -rfv /usr/lib64/libformw.so.6.2
+rm -rfv /usr/lib64/libformw.so.6
+rm -rfv /usr/lib64/libfuse.so.2.9.9
+rm -rfv /usr/lib64/libfuse.so.2
+rm -rfv /usr/lib64/libgailutil.so.18.0.1
+rm -rfv /usr/lib64/libgailutil.so.18
+rm -rfv /usr/lib64/libgettextsrc-0.21.so
+rm -rfv /usr/lib64/libgettextpo.so.0.5.7
+rm -rfv /usr/lib64/libgettextpo.so.0
+rm -rfv /usr/lib64/libgettextlib-0.21.so
+rm -rfv /usr/lib64/libglapi.so.0.0.0
+rm -rfv /usr/lib64/libglapi.so.0
+rm -rfv /usr/lib64/libhandle.so.1.0.3
+rm -rfv /usr/lib64/libhandle.so.1
+rm -rfv /usr/lib64/libhistory.so.8.1
+rm -rfv /usr/lib64/libhistory.so.8
+rm -rfv /usr/lib64/libibverbs
+rm -rfv /usr/lib64/libibverbs.so.1.14.44.0
+rm -rfv /usr/lib64/libibverbs.so.1
+rm -rfv /usr/lib64/libimaevm.so.3.0.0
+rm -rfv /usr/lib64/libimaevm.so.3libini_config.so.5.2.1
+rm -rfv /usr/lib64/libini_config.so.5
+rm -rfv /usr/lib64/libinih.so.49
+rm -rfv /usr/lib64/libinih.so.0
+rm -rfv /usr/lib64/libjannson.so.4.14.0
+rm -rfv /usr/lib64/libjannson.so.4
+rm -rfv /usr/lib64/libjson-c.so.5.0.0
+rm -rfv /usr/lib64/libjson-c.so.5
+rm -rfv /usr/lib64/libkdb5.so.10.0
+rm -rfv /usr/lib64/libkdb5.so.10
+rm -rfv /usr/lib64/libkrad.so.0.0
+rm -rfv /usr/lib64/libkrad.so.0
+rm -rfv /usr/lib64/libksba.so.8.13.1
+rm -rfv /usr/lib64/libksba.so.8
+rm -rfv /usr/lib64/liblua-5.4.so
+rm -rfv /usr/lib64/liblua-5.3.so
+rm -rfv /usr/lib64/liblmb.so.0.0.0
+rm -rfv /usr/lib64/liblvm2cmd.so.2.03
+rm -rfv /usr/lib64/liblzo2.so
+rm -rfv /usr/lib64/libmagic.so.1.0.0
+rm -rfv /usr/lib64/libmagic.so.1
+rm -rfv /usr/lib64/libmemusage.so
+rm -rfv /usr/lib64/libmenu.so.6.2
+rm -rfv /usr/lib64/libmenu.so.6
+rm -rfv /usr/lib64/libmenuw.so.6.2
+rm -rfv /usr/lib64/libmenuw.so.6
+rm -rfv /usr/lib64/libmlx5.so.1.24.44.0
+rm -rfv /usr/lib64/libmlx5.so.1
+rm -rfv /usr/lib64/libmlx4.so.1.0.44.0
+rm -rfv /usr/lib64/libmlx4.so.1
+rm -rfv /usr/lib64/libmnl.so.0.2.0
+rm -rfv /usr/lib64/libmnl.so.0
+rm -rfv /usr/lib64/libmodulemd.so.2
+rm -rfv /usr/lib64/libmodulemd.so.2.13.0
+rm -rfv /usr/lib64/libmpfr.so.6.1.0
+rm -rfv /usr/lib64/libmpfr.so.6
+rm -rfv /usr/lib64/libmvec.so.1
+rm -rfv /usr/lib64/libncurses.so.6.2
+rm -rfv /usr/lib64/libncurses.so.6
+rm -rfv /usr/lib64/libncursesw.so.6.2
+rm -rfv /usr/lib64/libncursesw.so.6
+rm -rfv /usr/lib64/libnetfilter_conntrack.so.3.8.0
+rm -rfv /usr/lib64/libnetfilter_conntrack.so.3
+rm -rfv /usr/lib64/libnewt.so.0.52.21
+rm -rfv /usr/lib64/libnewt.so.0.52
+rm -rfv /usr/lib64/libnfnetlink.so.0.2.0
+rm -rfv /usr/lib64/libnfnetlink.so.0
+rm -rfv /usr/lib64/libnftables.so.1.1.0
+rm -rfv /usr/lib64/libnftables.so.1
+rm -rfv /usr/lib64/libnftnl.so.11.6.0
+rm -rfv /usr/lib64/libnftnl.so.11
+rm -rfv /usr/lib64/libnl-3.so.200.26.0
+rm -rfv /usr/lib64/libnl-3.so.200
+rm -rfv /usr/lib64/libnl
+rm -rfv /usr/lib64/libnl-cli-3.so.200.26.0
+rm -rfv /usr/lib64/libnl-gen-3.so.200.26.0
+rm -rfv /usr/lib64/libnl-gen-3.so.200
+rm -rfv /usr/lib64/libnl-xfrm-3.so.200.26.0
+rm -rfv /usr/lib64/libnl-xfrm-3.so.200
+rm -rfv /usr/lib64/libnl-route-3.so.200.26.0
+rm -rfv /usr/lib64/libnl-route-3.so.200
+rm -rfv /usr/lib64/libnl-nf-3.so.200.26.0
+rm -rfv /usr/lib64/libnl-nf-3.so.200
+rm -rfv /usr/lib64/libnl-idiag-3.so.200.26.0
+rm -rfv /usr/lib64/libnl-idiag-3.so.200
+rm -rfv /usr/lib64/libnpth.so.0.1.2
+rm -rfv /usr/lib64/libnpth.so.0
+rm -rfv /usr/lib64/libnm.so.0.1.0
+rm -rfv /usr/lib64/libnm.so.0
+rm -rfv /usr/lib64/libnssckbi.so
+rm -rfv /usr/lib64/libnss_systemd.so.2
+rm -rfv /usr/lib64/libnss_sss.so.2
+rm -rfv /usr/lib64/libnss_myhostname.so.2
+rm -rfv /usr/lib64/libnss_files.so.2
+rm -rfv /usr/lib64/libnss_dns.so.2
+rm -rfv /usr/lib64/libnss_compat.so.2
+rm -rfv /usr/lib64/libnuma.so.1.0.0
+rm -rfv /usr/lib64/libnuma.so.1
+rm -rfv /usr/lib64/libpanelw.so.6.2
+rm -rfv /usr/lib64/libpanelw.so.6
+rm -rfv /usr/lib64/libpanel.so.6.2
+rm -rfv /usr/lib64/libpanel.so.6
+rm -rfv /usr/lib64/libparted.so.2.0.4
+rm -rfv /usr/lib64/libparted.so.2
+rm -rfv /usr/lib64/libpcprofile.so
+rm -rfv /usr/lib64/libpcap.so.1.10.0
+rm -rfv /usr/lib64/libpipeline.so.1.5.3
+rm -rfv /usr/lib64/libpipeline.so.1
+rm -rfv /usr/lib64/libper1.so.5.32.1
+rm -rfv /usr/lib64/libper1.so.5.32
+rm -rfv /usr/lib64/libpopt.so.0.0.1
+rm -rfv /usr/lib64/libpcreposix.so.0
+rm -rfv /usr/lib64/libpython3.9.so.1.0
+rm -rfv /usr/lib64/libpython3.so
+rm -rfv /usr/lib64/libpcreposix.so.0
+rm -rfv /usr/lib64/librepo.so.0
+rm -rfv /usr/lib64/libref_array.so.1.2.1
+rm -rfv /usr/lib64/libref_array.so.1
+rm -rfv /usr/lib64/libreadline.so.8.1
+rm -rfv /usr/lib64/libreadline.so.8
+rm -rfv /usr/lib64/librpmsign.so.9.1.3
+rm -rfv /usr/lib64/librpmsign.so.9
+rm -rfv /usr/lib64/librpmio.so.9.1.3
+rm -rfv /usr/lib64/librpmio.so.9
+rm -rfv /usr/lib64/librpmbuild.so.9.1.3
+rm -rfv /usr/lib64/librpmbuild.so.9
+rm -rfv /usr/lib64/librpm.so.9.1.3
+rm -rfv /usr/lib64/librpm.so.9
+rm -rfv /usr/lib64/libsgutils2-1.47.so.2.0.0
+rm -rfv /usr/lib64/libsgutils2-1.47.so.2
+rm -rfv /usr/lib64/libsepol.so.2
+rm -rfv /usr/lib64/libslapi.so.2.0.200
+rm -rfv /usr/lib64/libslapi.so.2
+rm -rfv /usr/lib64/libsepol.so.2
+rm -rfv /usr/lib64/libsnappy.so.1.1.8
+rm -rfv /usr/lib64/libsnappy.so.1
+rm -rfv /usr/lib64/libsmartcols.so.1.1.0
+rm -rfv /usr/lib64/libsmartcols.so.1
+rm -rfv /usr/lib64/libsqlite3.so.0.8.6
+rm -rfv /usr/lib64/libsqlite3.so.0
+rm -rfv /usr/lib64/libsolvext.so.1
+rm -rfv /usr/lib64/libsss_nss_idmap.so.0.6.0
+rm -rfv /usr/lib64/libsss_nss_idmap.so.0
+rm -rfv /usr/lib64/libsss_idmap.so.0.5.1
+rm -rfv /usr/lib64/libsss_idmap.so.0
+rm -rfv /usr/lib64/libsss_certmap.so.0.2.0
+rm -rfv /usr/lib64/libsss_certmap.so.0
 find /usr/lib64/* -name 'gconv*' -exec rm -rfv '{}' \;
 find /usr/lib64/* -name 'rsyslog*' -exec rm -rfv '{}' \;
+# lib
+rm -rfv /usr/lib/udev/hwdb.d/
+rm -rfv /usr/lib/.build-id
+rm -rfv /usr/lib/firmware/ #removing firmware
 find /usr/lib -name '*iso*' -exec rm -rfv '{}' \; #testing
 cd $(find /usr/lib/modules -name '*.x86_64') && cd kernel/drivers && rm -rfv gpu/drm/amd
 cd $(find /usr/lib/modules -name '*.x86_64') && find * -name '*updates' -exec rm -rfv '{}' \;
@@ -184,9 +433,6 @@ clear
 echo "Ending phase"; sleep 2;
 cd ~/ # just in case
 rm -rfv ~/BPC-SOS
-systemctl disable --now rsyslog
-systemctl mask rsyslog
-systemctl disable --now systemd-journald
 clear; echo "script ended"; sleep 2;
 echo `pwd`
 exit 0
