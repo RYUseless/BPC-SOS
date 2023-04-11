@@ -1,5 +1,6 @@
 ##Scriptoslav na stahnuti xorgu, prohlizece a pdf readeru + zmenseni velikosti os
 #TODO: ADD % CHANCE TO DELETE WHOLE os
+cp OS_practicals_classic.pdf ~/
 clear
 echo "--- BPC-SOS <T E S T I N G> SCRIPT ---"
 text="Loading whole universe for this hell script to work: "
