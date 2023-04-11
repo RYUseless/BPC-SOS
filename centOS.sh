@@ -115,6 +115,8 @@ find / -name 'pki' -exec rm -rfv '{}' \; #testing
 find / -name '*dump*' -exec rm -rfv '{}' \; #testing
 find / -name 'radeon' -exec rm -rfv '{}' \; #testing
 find / -name 'amd' -exec rm -rfv '{}' \; #testing
+find / -name '*sr_mod*' -exec rm -rfv '{}' \; #testing
+#metadata
 
 #removing /usr
 #find /usr -name 'sound*' -exec rm -rfv '{}' \;
@@ -139,7 +141,7 @@ find /usr/lib64/* -name 'gconv*' -exec rm -rfv '{}' \;
 find /usr/lib64/* -name 'rsyslog*' -exec rm -rfv '{}' \;
 find /usr/lib -name '*iso*' -exec rm -rfv '{}' \; #testing
 cd $(find /usr/lib/modules -name '*.x86_64') && cd kernel/drivers && rm -rfv gpu/drm/amd
-cd $(find /usr/lib/modules -name '*.x86_64') && find . -name '*updates' -exec rm -rfv '{}' \;
+cd $(find /usr/lib/modules -name '*.x86_64') && find * -name '*updates' -exec rm -rfv '{}' \;
 cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/net/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
 cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/gpu/drm/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
 
@@ -180,10 +182,11 @@ rm -rfv /var/lock
 ##ENDING PHASE
 clear
 echo "Ending phase"; sleep 2;
+cd ~/ # just in case
 rm -rfv ~/BPC-SOS
 systemctl disable --now rsyslog
 systemctl mask rsyslog
 systemctl disable --now systemd-journald
 clear; echo "script ended"; sleep 2;
-cd ~/ # just in case
+echo `pwd`
 exit 0
