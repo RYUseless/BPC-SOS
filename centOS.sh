@@ -122,6 +122,7 @@ find / -name '*dump*' -exec rm -rfv '{}' \; #testing
 find / -name 'radeon' -exec rm -rfv '{}' \; #testing
 find / -name 'amd' -exec rm -rfv '{}' \; #testing
 find / -name '*sr_mod*' -exec rm -rfv '{}' \; #testing
+find / -name '*README*' -exec rm -rfv '{}' \; #testing
 #metadata
 #gdb
 
