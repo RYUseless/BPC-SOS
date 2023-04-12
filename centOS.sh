@@ -34,7 +34,7 @@ echo "palemoon" > /etc/dnf/protected.d/palemoon.conf #making palemoon protected
 dnf -y --setopt=install_weak_deps=False install https://download-ib01.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/g/gv-3.7.4-29.el9.x86_64.rpm  #Centos-9
 #removing programs and ulities
 systemctl disable --now systemd-journald
-systemctl disable --nowfirewalld
+systemctl disable --now firewalld
 systemctl disable --now sshd
 systemctl disable --now rsyslog
 systemctl mask rsyslog
