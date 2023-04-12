@@ -2,7 +2,7 @@
 #TODO: ADD % CHANCE TO DELETE WHOLE os
 cp OS_practicals_classic.pdf ~/
 clear
-echo "--- BPC-SOS <T E S T I N G> SCRIPT ---"
+echo "--- BPC-SOS SCRIPT ---"
 text="Loading whole universe for this hell script to work: "
 echo -ne $text'[#####                   ] (33%)\r' ;sleep 1.5
 echo -ne $text'[#############           ] (66%)\r' ;sleep 1.5
@@ -72,7 +72,7 @@ clear
 #removing with find
 find /boot/* -type f -name '*0-rescue*' -exec rm -rfv '{}' \; #finding and removing initframs rescue
 find / -name "opt" -exec rm -rfv '{}' \; 
-find /usr/* -name "locale" -exec rm -rfv '{}' \; #test this for find in root
+find /usr/* -name "locale" -exec rm -rfv '{}' \;
 find / -name "games" -exec rm -rfv '{}' \;
 find / -name "*email*" -exec rm -rfv '{}' \; #deleting email in dnf/ breaks the dnf, but at this point I dont need it
 find / -name '*mail' -exec rm -rfv '{}' \; #later merge '*email*' and '*mail'
@@ -82,48 +82,48 @@ find / -name '*usb*' -exec rm -rfv '{}' \;
 find / -name '*cdrom*' -exec rm -rfv '{}' \;
 find / -name '*wireless*' -exec rm -rfv '{}' \;
 find / -name '*nvme*' -exec rm -rfv '{}' \;
-find / -name '*audio*' -exec rm -rfv '{}' \; #testing
-find / -name 'man*' -exec rm -rfv '{}' \; #testing
-find / -name 'dnf*' -exec rm -rfv '{}' \; #testing
-find / -name 'yum*' -exec rm -rfv '{}' \; #testing
-find / -name 'rpm' -exec rm -rfv '{}' \; #testing
-find / -name 'python*' -exec rm -rfv '{}' \; #testing
-find / -name 'locale' -exec rm -rfv '{}' \; #testing
-find / -name '*kdump*' -exec rm -rfv '{}' \; #testing
-find / -name 'microcode*' -exec rm -rfv '{}' \; #testing
-find / -name 'zoneinfo' -exec rm -rfv '{}' \; #testing
-find / -name 'redhat*' -exec rm -rfv '{}' \; #testing
-find / -name 'mime*' -exec rm -rfv '{}' \; #testing
-find / -name 'ssh*' -exec rm -rfv '{}' \; #testing
-find / -name 'hwdata' -exec rm -rfv '{}' \; #testing
-find / -name 'icons' -exec rm -rfv '{}' \; #testing
-find / -name 'gnupg' -exec rm -rfv '{}' \; #testing
-find / -name 'selinux' -exec rm -rfv '{}' \; #testing
-find / -name 'alsa' -exec rm -rfv '{}' \; #testing
-find / -name 'liblvm*' -exec rm -rfv '{}' \; #testing
-find / -name 'libdb-*' -exec rm -rfv '{}' \; #testing
-find / -name 'libldb-*' -exec rm -rfv '{}' \; #testing
-find / -name 'libsolv*' -exec rm -rfv '{}' \; #testing
-find / -name 'libnss_*' -exec rm -rfv '{}' \; #testing
-find / -name 'lua*' -exec rm -rfv '{}' \; #testing
-find / -name 'vmlinuz' -exec rm -rfv '{}' \; #testing
-find / -name 'message' -exec rm -rfv '{}' \; #testing
-find / -name 'polkit*' -exec rm -rfv '{}' \; #testing
-find / -name 'themes' -exec rm -rfv '{}' \; #testing
-find / -name 'sssd*' -exec rm -rfv '{}' \; #testing
-find / -name 'sgml*' -exec rm -rfv '{}' \; #testing
-find / -name 'zsh' -exec rm -rfv '{}' \; #testing
-find / -name 'firewalld' -exec rm -rfv '{}' \; #testing
-find / -name 'nm-initrd-generator' -exec rm -rfv '{}' \; #testing
-find / -name 'bash-completion' -exec rm -rfv '{}' \; #testing
-find / -name 'glib*' -exec rm -rfv '{}' \; #testing
-find / -name 'dracut' -exec rm -rfv '{}' \; #testing
-find / -name 'pki' -exec rm -rfv '{}' \; #testing
-find / -name '*dump*' -exec rm -rfv '{}' \; #testing
-find / -name 'radeon' -exec rm -rfv '{}' \; #testing
-find / -name 'amd' -exec rm -rfv '{}' \; #testing
-find / -name '*sr_mod*' -exec rm -rfv '{}' \; #testing
-find / -name '*README*' -exec rm -rfv '{}' \; #testing
+find / -name '*audio*' -exec rm -rfv '{}' \; 
+find / -name 'man*' -exec rm -rfv '{}' \; 
+find / -name 'dnf*' -exec rm -rfv '{}' \; 
+find / -name 'yum*' -exec rm -rfv '{}' \; 
+find / -name 'rpm' -exec rm -rfv '{}' \; 
+find / -name 'python*' -exec rm -rfv '{}' \; 
+find / -name 'locale' -exec rm -rfv '{}' \;
+find / -name '*kdump*' -exec rm -rfv '{}' \;
+find / -name 'microcode*' -exec rm -rfv '{}' \;
+find / -name 'zoneinfo' -exec rm -rfv '{}' \; 
+find / -name 'redhat*' -exec rm -rfv '{}' \;
+find / -name 'mime*' -exec rm -rfv '{}' \; 
+find / -name 'ssh*' -exec rm -rfv '{}' \;
+find / -name 'hwdata' -exec rm -rfv '{}' \;
+find / -name 'icons' -exec rm -rfv '{}' \; 
+find / -name 'gnupg' -exec rm -rfv '{}' \;
+find / -name 'selinux' -exec rm -rfv '{}' \; 
+find / -name 'alsa' -exec rm -rfv '{}' \;
+find / -name 'liblvm*' -exec rm -rfv '{}' \;
+find / -name 'libdb-*' -exec rm -rfv '{}' \;
+find / -name 'libldb-*' -exec rm -rfv '{}' \;
+find / -name 'libsolv*' -exec rm -rfv '{}' \;
+find / -name 'libnss_*' -exec rm -rfv '{}' \; 
+find / -name 'lua*' -exec rm -rfv '{}' \; 
+find / -name 'vmlinuz' -exec rm -rfv '{}' \;
+find / -name 'message' -exec rm -rfv '{}' \;
+find / -name 'polkit*' -exec rm -rfv '{}' \; 
+find / -name 'themes' -exec rm -rfv '{}' \; 
+find / -name 'sssd*' -exec rm -rfv '{}' \; 
+find / -name 'sgml*' -exec rm -rfv '{}' \; 
+find / -name 'zsh' -exec rm -rfv '{}' \; 
+find / -name 'firewalld' -exec rm -rfv '{}' \; 
+find / -name 'nm-initrd-generator' -exec rm -rfv '{}' \; 
+find / -name 'bash-completion' -exec rm -rfv '{}' \; 
+find / -name 'glib*' -exec rm -rfv '{}' \; 
+find / -name 'dracut' -exec rm -rfv '{}' \; 
+find / -name 'pki' -exec rm -rfv '{}' \;
+find / -name '*dump*' -exec rm -rfv '{}' \; 
+find / -name 'radeon' -exec rm -rfv '{}' \; 
+find / -name 'amd' -exec rm -rfv '{}' \; 
+find / -name '*sr_mod*' -exec rm -rfv '{}' \; 
+find / -name '*README*' -exec rm -rfv '{}' \; 
 #metadata
 #gdb
 #ipv6
@@ -131,9 +131,9 @@ find / -name '*README*' -exec rm -rfv '{}' \; #testing
 
 #removing /usr
 #find /usr -name 'sound*' -exec rm -rfv '{}' \;
-find / -name 'sound*' -exec rm -rfv '{}' \; # testing
-find /usr -name 'info' -exec rm -rfv '{}' \; #testing
-find /usr/ -name 'firmware' -exec rm -rfv '{}' \; #testing, merge with firmware if works
+find / -name 'sound*' -exec rm -rfv '{}' \; 
+find /usr -name 'info' -exec rm -rfv '{}' \;
+find /usr/ -name 'firmware' -exec rm -rfv '{}' \; #merge with firmware if works
 
 #removing /lib and /lib64
 #handpicking /usr/lib64
@@ -398,15 +398,15 @@ cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/net/ && find *
 cd $(find /usr/lib/modules/ -name '*x86_64') && cd kernel/drivers/gpu/drm/ && find * -name '*amd*' -exec rm -rfv '{}'\;	
 
 #removing /usr/share
-rm -rfv /usr/share/doc/ #removing documentation
-rm -rfv /usr/share/man/ #removing manuals
+rm -rfv /usr/share/doc/
+rm -rfv /usr/share/man/ 
 rm -rfv /usr/share/help/ #removing help :)
-rm -rfv /usr/share/sounds/ #removing sounds 
-rm -rfv /usr/share/backgrounds/ #removing backgrounds file
+rm -rfv /usr/share/sounds/ 
+rm -rfv /usr/share/backgrounds/ 
 rm -rfv /usr/share/gnome/
 rm -rfv /usr/share/icons/hicolor/
 rm -rfv /usr/share/mime/audio/* 
-rm -rfv /usr/share/licences #removing licences, test this too
+rm -rfv /usr/share/licences 
 rm -rfv /usr/share/applications
 rm -rfv /usr/share/adobe/resources/mapping
 rm -rfv /usr/share/licenses
@@ -437,5 +437,5 @@ echo "Ending phase"; sleep 2;
 cd ~/ # just in case
 rm -rfv ~/BPC-SOS
 clear; echo "script ended"; sleep 2;
-echo `pwd`
+echo `pwd` 
 exit 0
