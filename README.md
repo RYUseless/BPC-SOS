@@ -6,12 +6,20 @@ This repo is a centOS script for BPC-SOS project (make Linux OS as smallest as p
 > It should work with centos8, if u uncomment the mirrors for centos8 <br>
 ## How to make it run?
 + If needed, install git: ``dnf install git``
++ On centos9, there are issues with sha1 signature, to fix this, execute these commands and reboot: 
 ```bash
-sh BPC-SOS/centOS.sh 
+update-crypto-policies --set LEGACY
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
 ```
-> Or you can ``cd`` into ``BPC-SOS/`` first. </br>
-> You can switch to testing branch with: ``git switch Testing`` there is capital T :) </br>
-> You can view all branches with: ``git branch`` </br>
++ Start script with:
+```bash
+sh <where_you_clonned_repo>/BPC-SOS/centOS.sh 
+```
+> example: ``sh ~/BPC-SOS/centOS.sh`` </br>
++ You can switch to testing branch with: ``git switch Testing``
+(You need to be in BPC-SOS/ directory). </br>
++ With ``git branch`` you can view your current branch.  </br>
++``git branch -r`` Will show all branches.  </br>
 ## How to launch Browser and PDF reader
 + launch browser:
 	* First step: start xorg and xterm with command ``startx``
