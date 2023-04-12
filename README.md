@@ -19,7 +19,7 @@ sh <where_you_clonned_repo>/BPC-SOS/centOS.sh
 + You can switch to testing branch with: ``git switch Testing``
 (You need to be in BPC-SOS/ directory). </br>
 + With ``git branch`` you can view your current branch.  </br>
-+``git branch -r`` Will show all branches.  </br>
++ ``git branch -r`` Will show all branches.  </br>
 ## How to launch Browser and PDF reader
 + launch browser:
 	* First step: start xorg and xterm with command ``startx``
