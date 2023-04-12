@@ -25,7 +25,7 @@ sh BPC-SOS/centOS.sh
 > I will write down all things as i manage them to work like i want to :-)
 - [x] Install xorg apps + xterm, make sure xorg works (simple thing, its not bulletproof) and setup .xinitrc(minimal basics).
 - [x] Install webbrowser and some PDF reader
-- **[Failed]** add testing for working webbrowser and pdf reader
+**[Failed]** add testing for working webbrowser and pdf reader
 - [x] Set ut removing .cache and other useless stuff when system boots -> for now in .bashrc (until i find better way)
 - [X] removing whole bunch of random packages until i dont have anything more to delete :-P
 > kinda done, i know about some more spaces where i can delete some more, but there is no time :(
